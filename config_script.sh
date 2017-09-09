@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x 
-
 apt update
 apt dist-upgrade
 
