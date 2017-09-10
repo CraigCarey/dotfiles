@@ -1,16 +1,26 @@
 #!/bin/bash
 
-apt update
-apt dist-upgrade
+sudo apt update
+sudo apt dist-upgrade
 
-apt --yes --force-yes install build-essential python3.6 i3 tree chromium-browser git feh
+sudo apt --yes --force-yes install \
+							git \
+							build-essential \
+							radare2 \
+							python3.6 \
+							i3 \
+							tree \
+							chromium-browser \
+							meld \
+							bless \
+							feh
 
-readonly USERNAME="craig"
-readonly HOME_DIR="/home/${USERNAME}/"
+readonly HOME_DIR="/home/${USER}/"
 
-# VMs only
-apt --yes --force-yes install virtualbox-guest-additions-iso
-adduser "$USERNAME" vboxusers
+if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
+	sudo apt --yes --force-yes install virtualbox-guest-additions-iso
+	sudo adduser "$USER" vboxusers
+fi
 
 readonly SUBL_DIR="/usr/bin/sublime_text_3/"
 if [ ! -d "$SUBL_DIR" ]; then
@@ -21,7 +31,7 @@ fi
 
 cp "bashrc" "${HOME_DIR}.bashrc"
 cp "bash_aliases" "${HOME_DIR}.bash_aliases"
-source "${HOME_DIR}.bashrc"
+cp "gitconfig" "${HOME_DIR}.gitconfig"
 
 feh --bg-scale "elcapitan2hr.jpg"
 
