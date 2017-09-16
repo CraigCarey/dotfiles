@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt dist-upgrade
+sudo apt -y dist-upgrade
 
 sudo apt --yes --force-yes install \
 							git \
