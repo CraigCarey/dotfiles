@@ -21,6 +21,7 @@ alias mk='make -s'
 alias cls='printf "\033c"'
 alias pss='PS1="$ "'
 alias srcrc='source ~/.bashrc'
+alias ll='ls -l'
 
 # misc
 alias df='df -h'

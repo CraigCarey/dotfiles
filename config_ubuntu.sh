@@ -13,7 +13,8 @@ sudo apt --yes --force-yes install \
 							chromium-browser \
 							meld \
 							bless \
-							feh
+							feh \
+							sshfs
 
 readonly HOME_DIR="/home/${USER}/"
 
@@ -22,14 +23,15 @@ if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
 	sudo adduser "$USER" vboxusers
 fi
 
-readonly SUBL_DIR="/usr/bin/sublime_text_3/"
+readonly SUBL_DIR="/opt/sublime_text_3/"
 if [ ! -d "$SUBL_DIR" ]; then
-	wget "https://download.sublimetext.com/sublime_text_3_build_3126_x64.tar.bz2"
-	sudo tar -xf "sublime_text_3_build_3126_x64.tar.bz2" -C "/usr/bin/"
+	wget "https://download.sublimetext.com/sublime_text_3_build_3143_x64.tar.bz2"
+	tar vxjf "sublime_text_3_build_3143_x64.tar.bz2"
+	sudo mv "sublime_text_3" "/opt/"
 	sudo ln -s "${SUBL_DIR}sublime_text" "/usr/bin/sb"
 fi
 
-cp "bashrc" "${HOME_DIR}.bashrc"
+cp "ubuntu_bashrc" "${HOME_DIR}.bashrc"
 cp "bash_aliases" "${HOME_DIR}.bash_aliases"
 cp "gitconfig" "${HOME_DIR}.gitconfig"
 
