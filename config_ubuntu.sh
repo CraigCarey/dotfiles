@@ -8,6 +8,8 @@ sudo apt --yes --force-yes install \
 							build-essential \
 							radare2 \
 							python3.6 \
+							python3-venv \
+							python-pip \
 							i3 \
 							tree \
 							chromium-browser \
@@ -15,6 +17,8 @@ sudo apt --yes --force-yes install \
 							bless \
 							feh \
 							sshfs
+
+# sudo apt --yes --force-yes autoremove
 
 readonly HOME_DIR="/home/${USER}/"
 
@@ -29,6 +33,13 @@ if [ ! -d "$SUBL_DIR" ]; then
 	tar vxjf "sublime_text_3_build_3143_x64.tar.bz2"
 	sudo mv "sublime_text_3" "/opt/"
 	sudo ln -s "${SUBL_DIR}sublime_text" "/usr/bin/sb"
+fi
+
+readonly PYCHARM_DIR="/opt/pycharm-2017.2.3/"
+if [ ! -d "$PYCHARM_DIR" ]; then
+	wget "https://download.jetbrains.com/python/pycharm-professional-2017.2.3.tar.gz"
+	tar xf "pycharm-professional-2017.2.3.tar.gz" -C "/opt/"
+	sudo ln -s "${PYCHARM_DIR}bin/pycharm.sh" "/usr/bin/pyc"
 fi
 
 cp "ubuntu_bashrc" "${HOME_DIR}.bashrc"
