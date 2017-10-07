@@ -55,3 +55,6 @@ feh --bg-scale "elcapitan2hr.jpg"
 
 rm -rf "${HOME_DIR}Documents" "${HOME_DIR}Music" "${HOME_DIR}examples.desktop" "${HOME_DIR}Pictures" \
        "${HOME_DIR}Public" "${HOME_DIR}Templates" "${HOME_DIR}Videos" "${HOME_DIR}Firefox_wallpaper.png"
+
+# remap § key to #
+xmodmap -e "keycode 49 = numbersign"

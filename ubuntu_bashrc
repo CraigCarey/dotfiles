@@ -115,3 +115,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+feh --bg-scale "/home/craig/Desktop/linux_config/elcapitan2hr.jpg"
