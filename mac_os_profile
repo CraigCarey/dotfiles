@@ -1,0 +1,43 @@
+#
+# Aliases
+#
+
+# git
+alias gs='git status'
+alias gcm='git commit -am'
+alias gca='git commit --amend'
+alias gp='git push'
+alias gpr='git pull; git reset --hard FETCH_HEAD'
+alias grso='git remote show origin'
+alias gbsa='git branch -a'
+alias gl='git log --graph --decorate'
+alias glo='gl --oneline'
+alias gd='git difftool'
+
+# make
+alias mcl='make clean -s'
+alias mch='make check -s'
+alias mk='make -s'
+
+# networking
+alias myip='ipecho.net/plain ; echo'                # Public facing IP Address
+alias netCons='lsof -i'                             # Show all open TCP/IP sockets
+alias flushDNS='dscacheutil -flushcache'            # Flush out the DNS Cache
+alias lsock='sudo /usr/sbin/lsof -i -P'             # Display open sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # Display only open UDP sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # Display only open TCP sockets
+alias ipInfo0='ipconfig getpacket en0'              # Get info on connections for en0
+alias ipInfo1='ipconfig getpacket en1'              # Get info on connections for en1
+alias openPorts='sudo lsof -i | grep LISTEN'        # All listening connections
+alias showBlocked='sudo ipfw list'                  # All ipfw rules inc/ blocked IPs
+
+# misc
+alias showHidden='defaults write com.apple.finder ShowAllFiles TRUE'
+alias hideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
+alias ll='ls -FGlAhp'
+alias cpr='cp -r'
+alias cls='clear'
+alias pss='PS1="$ "'
+alias srcrc='source ~/.bash_profile'
+
+test -f ~/.git-completion.bash && . $_
