@@ -11,6 +11,9 @@ alias glo='gl --oneline'
 alias gd='git difftool'
 alias gde='git difftool --tool emerge'
 alias gdm='git difftool --tool meld'
+function gitig() {
+	echo "$1" >> .gitignore
+}
 
 # make
 alias mcl='make clean -s'

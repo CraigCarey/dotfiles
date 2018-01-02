@@ -59,6 +59,15 @@ if [ ! -d "$WEBSTORM_DIR" ]; then
 	sudo ln -s "${WEBSTORM_DIR}bin/webstorm.sh" "/usr/bin/webstorm"
 fi
 
+readonly CLION_DIR="/opt/clion/"
+if [ ! -d "$CLION_DIR" ]; then
+	readonly CLION_DL="CLion-2017.3.1.tar.gz"
+	wget "https://download.jetbrains.com/cpp/${CLION_DL}"
+	sudo mkdir "$CLION_DIR"
+	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
+	sudo ln -s "${CLION_DIR}bin/clion.sh" "/usr/bin/clion"
+fi
+
 cp "ubuntu_bashrc" "${HOME_DIR}.bashrc"
 cp "bash_aliases" "${HOME_DIR}.bash_aliases"
 cp "gitconfig" "${HOME_DIR}.gitconfig"
