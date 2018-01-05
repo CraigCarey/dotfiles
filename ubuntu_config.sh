@@ -21,7 +21,8 @@ sudo apt --yes --force-yes install \
                            bless \
                            feh \
                            sshfs \
-                           ntpdate
+                           ntpdate \
+                           tmux
 
 readonly HOME_DIR="/home/${USER}/"
 
@@ -71,6 +72,7 @@ fi
 cp "ubuntu_bashrc" "${HOME_DIR}.bashrc"
 cp "bash_aliases" "${HOME_DIR}.bash_aliases"
 cp "gitconfig" "${HOME_DIR}.gitconfig"
+cp "tmux.conf" "${HOME_DIR}.tmux.conf"
 cp "elcapitan2hr.jpg" "$HOME_DIR"
 
 feh --bg-scale "${HOME_DIR}elcapitan2hr.jpg"

@@ -31,3 +31,9 @@ alias df='df -h'
 alias zip_enc='zip -er'
 alias chrm='chromium-browser'
 alias cpr='cp -r'
+
+# tmux
+alias tmuxns='tmux new -s'
+alias tmuxls='tmux ls'
+alias tmuxas='tmux a -t'
+alias tmuxks='tmux kill-session -t'
