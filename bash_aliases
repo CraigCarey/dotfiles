@@ -11,6 +11,7 @@ alias glo='gl --oneline'
 alias gd='git difftool'
 alias gde='git difftool --tool emerge'
 alias gdm='git difftool --tool meld'
+alias gcdfx='git clean -dfx'
 function gitig() {
 	echo "$1" >> .gitignore
 }
@@ -27,13 +28,18 @@ alias srcrc='source ~/.bashrc'
 alias ll='ls -l'
 
 # misc
-alias df='df -h'
+alias dfh='df -h'
 alias zip_enc='zip -er'
 alias chrm='chromium-browser'
 alias cpr='cp -r'
+alias extip='curl ipinfo.io/ip'
 
 # tmux
 alias tmuxns='tmux new -s'
 alias tmuxls='tmux ls'
 alias tmuxas='tmux a -t'
 alias tmuxks='tmux kill-session -t'
+
+# ssh
+alias sshfspi='sshfs pi@82.2.222.68: ~/pi_home/'
+alias sshpi='ssh pi@82.2.222.68'
