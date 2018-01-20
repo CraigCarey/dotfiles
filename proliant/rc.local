@@ -17,6 +17,12 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
+sudo echo 128 > /proc/sys/vm/nr_hugepages
+sudo sysctl -w vm.nr_hugepages=128
+
 sudo -u craig /home/craig/mining/mine_on_boot.sh > /tmp/mineboot.log 2>&1
 
+#iptables-restore < /etc/iptables.sav
+
 echo 0
+

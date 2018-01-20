@@ -34,6 +34,7 @@ alias chrm='chromium-browser'
 alias cpr='cp -r'
 alias extip='curl ipinfo.io/ip'
 alias netscan='ifconfig | grep broadcast | arp -a'
+alias startx='sudo service lightdm start'
 
 # tmux
 alias tmuxns='tmux new -s'

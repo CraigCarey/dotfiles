@@ -3,6 +3,7 @@
 # in /etc/rc.local:
 #sudo -u craig /home/craig/mining/mine_on_boot.sh > /tmp/mineboot.log 2>&1
 
+
 set -ux
 
 readonly SESSION_NAME="mining"
