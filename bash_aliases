@@ -33,6 +33,7 @@ alias zip_enc='zip -er'
 alias chrm='chromium-browser'
 alias cpr='cp -r'
 alias extip='curl ipinfo.io/ip'
+alias netscan='ifconfig | grep broadcast | arp -a'
 
 # tmux
 alias tmuxns='tmux new -s'
