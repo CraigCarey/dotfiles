@@ -2,6 +2,12 @@
 auto lo
 iface lo inet loopback
 
+auto wlx000e8e4fd1f4
+iface wlx000e8e4fd1f4 inet static
+address 192.168.0.10
+netmask 255.255.255.0
+gateway 192.168.0.1
+
 # Bridge between eth0 and eth1
 #auto br0
 # For static configuration delete or comment out the above line and uncomment the following:

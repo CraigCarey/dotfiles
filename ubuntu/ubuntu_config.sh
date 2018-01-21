@@ -70,6 +70,7 @@ if [ ! -d "$CLION_DIR" ]; then
 fi
 
 cp "bashrc" "${HOME_DIR}.bashrc"
+sudo cp "../hosts" "/etc/hosts"
 cp "../bash_aliases" "${HOME_DIR}.bash_aliases"
 cp "../gitconfig" "${HOME_DIR}.gitconfig"
 cp "../tmux.conf" "${HOME_DIR}.tmux.conf"
