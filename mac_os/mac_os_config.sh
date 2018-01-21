@@ -841,8 +841,8 @@ defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool t
 # Copy config files                                                           #
 ###############################################################################
 
-cp "gitconfig" "${HOME}/.gitconfig"
-cat "mac_os_profile" >> "${HOME}/.bash_profile"
+cp "../gitconfig" "${HOME}/.gitconfig"
+cat "bash_profile" >> "${HOME}/.bash_profile"
 source "${HOME}/.bash_profile"
 
 ###############################################################################

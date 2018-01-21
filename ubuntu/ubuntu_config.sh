@@ -69,13 +69,14 @@ if [ ! -d "$CLION_DIR" ]; then
 	sudo ln -s "${CLION_DIR}bin/clion.sh" "/usr/bin/clion"
 fi
 
-cp "ubuntu_bashrc" "${HOME_DIR}.bashrc"
-cp "bash_aliases" "${HOME_DIR}.bash_aliases"
-cp "gitconfig" "${HOME_DIR}.gitconfig"
-cp "tmux.conf" "${HOME_DIR}.tmux.conf"
-cp "elcapitan2hr.jpg" "$HOME_DIR"
+cp "bashrc" "${HOME_DIR}.bashrc"
+cp "../bash_aliases" "${HOME_DIR}.bash_aliases"
+cp "../gitconfig" "${HOME_DIR}.gitconfig"
+cp "../tmux.conf" "${HOME_DIR}.tmux.conf"
+cp "../elcapitan2hr.jpg" "$HOME_DIR"
 
-feh --bg-scale "${HOME_DIR}elcapitan2hr.jpg"
+mkdir -p "${HOME_DIR}.ssh/"
+cp "../ssh/authorized_keys" "${HOME_DIR}.ssh/" 
 
 rm -rf "${HOME_DIR}Documents" "${HOME_DIR}Music" "${HOME_DIR}examples.desktop" "${HOME_DIR}Pictures" \
        "${HOME_DIR}Public" "${HOME_DIR}Templates" "${HOME_DIR}Videos" "${HOME_DIR}Firefox_wallpaper.png"
