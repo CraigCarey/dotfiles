@@ -75,6 +75,7 @@ cp "../bash_aliases" "${HOME_DIR}.bash_aliases"
 cp "../gitconfig" "${HOME_DIR}.gitconfig"
 cp "../tmux.conf" "${HOME_DIR}.tmux.conf"
 cp "../elcapitan2hr.jpg" "$HOME_DIR"
+cp -r "i3/" "${HOME_DIR}.config/"
 
 mkdir -p "${HOME_DIR}.ssh/"
 cp "../ssh/authorized_keys" "${HOME_DIR}.ssh/" 
