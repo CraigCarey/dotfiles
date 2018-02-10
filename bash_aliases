@@ -34,7 +34,12 @@ alias chrm='chromium-browser'
 alias cpr='cp -r'
 alias extip='curl ipinfo.io/ip'
 alias netscan='ifconfig | grep broadcast | arp -a'
+alias kbgb='setxkbmap -layout gb'
+alias kbmac='kbgb -variant mac'
+
+# lubuntu specific...
 alias startx='sudo service lightdm start'
+alias hibernate='sudo systemctl suspend'
 
 # tmux
 alias tmuxns='tmux new -s'
