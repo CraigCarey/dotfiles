@@ -69,7 +69,7 @@ if [ ! -d "$CLION_DIR" ]; then
 	sudo ln -s "${CLION_DIR}bin/clion.sh" "/usr/bin/clion"
 fi
 
-if [[ $(sudo dmidecode -s system-product-name) !~ "VirtualBox" ]]; then
+if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
 	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 	sudo apt-get update
@@ -82,7 +82,7 @@ cp "../bash_aliases" "${HOME_DIR}.bash_aliases"
 cp "../gitconfig" "${HOME_DIR}.gitconfig"
 cp "../tmux.conf" "${HOME_DIR}.tmux.conf"
 cp "../elcapitan2hr.jpg" "$HOME_DIR"
-cp -r "i3/" "${HOME_DIR}.config/"
+cp -r "../i3/" "${HOME_DIR}.config/"
 
 mkdir -p "${HOME_DIR}.ssh/"
 cp "../ssh/authorized_keys" "${HOME_DIR}.ssh/" 
