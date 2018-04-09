@@ -2,6 +2,7 @@
 
 sudo apt update
 sudo apt -y dist-upgrade
+sudo rpi-update
 
 sudo apt --yes --force-yes install \
                            git \
@@ -10,14 +11,17 @@ sudo apt --yes --force-yes install \
                            sshfs \
                            tmux
 
-readonly HOME_DIR="/home/${USER}/"
+set -x
 
-cp "bashrc" "${HOME_DIR}.bashrc"
-cp "../bash_aliases" "${HOME_DIR}.bash_aliases"
-cp "../gitconfig" "${HOME_DIR}.gitconfig"
-cp "../tmux.conf" "${HOME_DIR}.tmux.conf"
+cp bashrc ${HOME}/.bashrc
+cp ../bash_aliases ${HOME}/.bash_aliases
+cp ../gitconfig ${HOME}/.gitconfig
+cp ../tmux.conf ${HOME}/.tmux.conf
+sudo cp dhcpcd.conf /etc/
+sudo cp interfaces /etc/network/
+sudo cp wpa_supplicant.conf /etc/wpa_supplicant/
 
-mkdir -p "${HOME_DIR}.ssh/"
-cp "../ssh/authorized_keys" "${HOME_DIR}.ssh/" 
+mkdir -p ${HOME}/.ssh/
+cp ../ssh/authorized_keys ${HOME}/.ssh/
 
-sudo touch "/boot/ssh"
+sudo touch /boot/ssh

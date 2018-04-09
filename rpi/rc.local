@@ -17,6 +17,4 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-sudo -u pi /home/pi/mining/mine_on_boot.sh > /tmp/mineboot.log 2>&1
-
 exit 0
