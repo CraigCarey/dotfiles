@@ -11,7 +11,7 @@ sudo apt --yes --force-yes install \
                            git \
                            build-essential \
                            radare2 \
-                           python3.6 \
+                           python3.5 \
                            python3-venv \
                            python-pip \
                            i3 \
@@ -35,7 +35,7 @@ if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
 fi
 
 readonly SUBL_DIR="/opt/sublime_text_3/"
-if [ ! -d "$SUBL_DIR" ]; then
+if [[ ! -d "$SUBL_DIR" ]]; then
 	wget "https://download.sublimetext.com/sublime_text_3_build_3143_x64.tar.bz2"
 	tar vxjf "sublime_text_3_build_3143_x64.tar.bz2"
 	sudo mv "sublime_text_3" "/opt/"
@@ -43,7 +43,7 @@ if [ ! -d "$SUBL_DIR" ]; then
 fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
-if [ ! -d "$PYCHARM_DIR" ]; then
+if [[ ! -d "$PYCHARM_DIR" ]]; then
 	readonly PYCHARM_DL="pycharm-professional-2017.2.4.tar.gz"
 	wget "https://download.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
@@ -52,7 +52,7 @@ if [ ! -d "$PYCHARM_DIR" ]; then
 fi
 
 readonly WEBSTORM_DIR="/opt/webstorm/"
-if [ ! -d "$WEBSTORM_DIR" ]; then
+if [[ ! -d "$WEBSTORM_DIR" ]]; then
 	readonly WEBSTORM_DL="WebStorm-2017.2.5.tar.gz"
 	wget "https://download.jetbrains.com/webstorm/${WEBSTORM_DL}"
 	sudo mkdir "$WEBSTORM_DIR"
@@ -61,7 +61,7 @@ if [ ! -d "$WEBSTORM_DIR" ]; then
 fi
 
 readonly CLION_DIR="/opt/clion/"
-if [ ! -d "$CLION_DIR" ]; then
+if [[ ! -d "$CLION_DIR" ]]; then
 	readonly CLION_DL="CLion-2017.3.1.tar.gz"
 	wget "https://download.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
@@ -92,6 +92,3 @@ rm -rf "${HOME_DIR}Documents" "${HOME_DIR}Music" "${HOME_DIR}examples.desktop" "
 
 # remap § key to #
 xmodmap -e "keycode 49 = numbersign"
-
-# update time
-sudo ntpdate time.nist.gov
