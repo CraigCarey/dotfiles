@@ -46,7 +46,3 @@ alias tmuxns='tmux new -s'
 alias tmuxls='tmux ls'
 alias tmuxas='tmux a -t'
 alias tmuxks='tmux kill-session -t'
-
-# ssh
-alias sshfspi='sshfs pi@82.2.222.68: ~/pi_home/'
-alias sshpi='ssh pi@82.2.222.68'
