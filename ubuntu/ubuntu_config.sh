@@ -10,21 +10,19 @@ sudo apt -y dist-upgrade
 sudo apt --yes --force-yes install \
                            git \
                            build-essential \
-                           radare2 \
                            python3.5 \
                            python3-venv \
                            python-pip \
                            i3 \
+                           i3lock \
+                           scrot \
+                           imagemagick \
                            tree \
-                           chromium-browser \
                            meld \
                            bless \
                            feh \
                            sshfs \
-                           ntpdate \
                            tmux
-
-readonly HOME_DIR="/home/${USER}/"
 
 if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
 	sudo apt --yes --force-yes install virtualbox-guest-additions-iso
@@ -76,19 +74,20 @@ if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
 	sudo apt-get install spotify-client
 fi
 
-cp "bashrc" "${HOME_DIR}.bashrc"
+cp "bashrc" "${HOME}.bashrc"
 sudo cp "../hosts" "/etc/hosts"
-cp "../bash_aliases" "${HOME_DIR}.bash_aliases"
-cp "../gitconfig" "${HOME_DIR}.gitconfig"
-cp "../tmux.conf" "${HOME_DIR}.tmux.conf"
-cp "../elcapitan2hr.jpg" "$HOME_DIR"
-cp -r "../i3/" "${HOME_DIR}.config/"
+cp "../bash_aliases" "${HOME}.bash_aliases"
+cp "../gitconfig" "${HOME}.gitconfig"
+cp "../tmux.conf" "${HOME}.tmux.conf"
+cp -r "../i3/" "${HOME}.config/"
+cp "../elcapitan2hr.jpg" "${HOME}/.config/i3/"
+sudo ln -s "${HOME}/.config/i3/lockscreen.sh" "/usr/bin/lockscreen"
 
-mkdir -p "${HOME_DIR}.ssh/"
-cp "../ssh/authorized_keys" "${HOME_DIR}.ssh/" 
+mkdir -p "${HOME}.ssh/"
+cp "../ssh/authorized_keys" "${HOME}.ssh/" 
 
-rm -rf "${HOME_DIR}Documents" "${HOME_DIR}Music" "${HOME_DIR}examples.desktop" "${HOME_DIR}Pictures" \
-       "${HOME_DIR}Public" "${HOME_DIR}Templates" "${HOME_DIR}Videos" "${HOME_DIR}Firefox_wallpaper.png"
+rm -rf "${HOME}Documents" "${HOME}Music" "${HOME}examples.desktop" "${HOME}Pictures" \
+       "${HOME}Public" "${HOME}Templates" "${HOME}Videos" "${HOME}Firefox_wallpaper.png"
 
 # remap § key to #
 xmodmap -e "keycode 49 = numbersign"

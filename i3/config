@@ -174,5 +174,4 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec --no-startup-id feh --bg-fill ~/elcapitan2hr.jpg
-
+exec --no-startup-id feh --bg-fill ~/.config/i3/elcapitan2hr.jpg
