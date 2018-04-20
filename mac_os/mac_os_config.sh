@@ -596,6 +596,9 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 # Terminal & iTerm 2                                                          #
 ###############################################################################
 
+defaults write com.apple.Terminal.plist "Default Window Settings" "Pro"
+defaults write com.apple.Terminal.plist "Startup Window Settings" "Pro"
+
 # Only use UTF-8 in Terminal.app
 # defaults write com.apple.terminal StringEncodings -array 4
 

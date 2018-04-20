@@ -12,8 +12,8 @@ alias grso='git remote show origin'
 alias gbsa='git branch -a'
 alias gl='git log --graph --decorate'
 alias glo='gl --oneline'
-alias gd='git difftool'
-
+alias gd='git diff'
+alias gcl='git clean -dfx'
 function gitig() {
 	echo "$1" >> .gitignore
 }
