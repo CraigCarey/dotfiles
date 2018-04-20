@@ -22,6 +22,8 @@ sudo apt --yes --force-yes install \
                            bless \
                            feh \
                            sshfs \
+                           openssh-server \
+                           net-tools \
                            tmux
 
 if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
@@ -74,20 +76,20 @@ if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
 	sudo apt-get install spotify-client
 fi
 
-cp "bashrc" "${HOME}.bashrc"
+cp "bashrc" "${HOME}/.bashrc"
 sudo cp "../hosts" "/etc/hosts"
-cp "../bash_aliases" "${HOME}.bash_aliases"
-cp "../gitconfig" "${HOME}.gitconfig"
-cp "../tmux.conf" "${HOME}.tmux.conf"
-cp -r "../i3/" "${HOME}.config/"
+cp "../bash_aliases" "${HOME}/.bash_aliases"
+cp "../gitconfig" "${HOME}/.gitconfig"
+cp "../tmux.conf" "${HOME}/.tmux.conf"
+cp -r "../i3/" "${HOME}/.config/"
 cp "../elcapitan2hr.jpg" "${HOME}/.config/i3/"
 sudo ln -s "${HOME}/.config/i3/lockscreen.sh" "/usr/bin/lockscreen"
 
-mkdir -p "${HOME}.ssh/"
-cp "../ssh/authorized_keys" "${HOME}.ssh/" 
+mkdir -p "${HOME}/.ssh/"
+cp "../ssh/authorized_keys" "${HOME}/.ssh/" 
 
-rm -rf "${HOME}Documents" "${HOME}Music" "${HOME}examples.desktop" "${HOME}Pictures" \
-       "${HOME}Public" "${HOME}Templates" "${HOME}Videos" "${HOME}Firefox_wallpaper.png"
+rm -rf "${HOME}/Documents" "${HOME}/Music" "${HOME}/examples.desktop" "${HOME}/Pictures" \
+       "${HOME}/Public" "${HOME}/Templates" "${HOME}/Videos" "${HOME}/Firefox_wallpaper.png"
 
 # remap § key to #
 xmodmap -e "keycode 49 = numbersign"
