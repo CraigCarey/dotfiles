@@ -36,6 +36,7 @@ alias extip='curl ipinfo.io/ip'
 alias netscan='ifconfig | grep broadcast | arp -a'
 alias kbgb='setxkbmap -layout gb'
 alias kbmac='kbgb -variant mac'
+alias dsz='du -sh'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'

@@ -5,6 +5,7 @@ sudo apt -y upgrade
 
 sudo apt --yes --force-yes install \
                            git \
+                           man \
                            build-essential \
                            tree \
                            sshfs \
