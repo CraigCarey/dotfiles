@@ -1,11 +1,12 @@
 #!/bin/bash
 
+# install git, build-essential
 # Insert Guest additions CD
 # sudo ./VBoxLinuxAdditions.run
 # restart
 
 sudo apt update
-sudo apt -y dist-upgrade
+sudo apt -y upgrade
 
 sudo apt --yes --force-yes install \
                            git \
