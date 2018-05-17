@@ -11,7 +11,8 @@ alias glo='gl --oneline'
 alias gd='git difftool'
 alias gde='git difftool --tool emerge'
 alias gdm='git difftool --tool meld'
-alias gcdfx='git clean -dfx'
+alias gcl='git clean -dfx'
+alias grhh='git reset --hard HEAD'
 function gitig() {
 	echo "$1" >> .gitignore
 }
@@ -30,13 +31,16 @@ alias ll='ls -l'
 # misc
 alias dfh='df -h'
 alias zip_enc='zip -er'
-alias chrm='chromium-browser'
 alias cpr='cp -r'
+alias chrm='chromium-browser'
 alias extip='curl ipinfo.io/ip'
 alias netscan='ifconfig | grep broadcast | arp -a'
 alias kbgb='setxkbmap -layout gb'
 alias kbmac='kbgb -variant mac'
 alias dsz='du -sh'
+alias aptup='sudo apt update && sudo apt upgrade'
+alias aptin='sudo apt install -y'
+alias aptsch='apt-cache search'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
