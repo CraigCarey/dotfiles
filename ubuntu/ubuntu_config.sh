@@ -15,9 +15,6 @@ sudo apt --yes --force-yes install \
                            python3-venv \
                            python-pip \
                            i3 \
-                           i3lock \
-                           scrot \
-                           imagemagick \
                            tree \
                            meld \
                            bless \
@@ -37,15 +34,15 @@ fi
 
 readonly SUBL_DIR="/opt/sublime_text_3/"
 if [[ ! -d "$SUBL_DIR" ]]; then
-	wget "https://download.sublimetext.com/sublime_text_3_build_3143_x64.tar.bz2"
-	tar vxjf "sublime_text_3_build_3143_x64.tar.bz2"
+	wget "https://download.sublimetext.com/sublime_text_3_build_3176_x64.tar.bz2"
+	tar vxjf "sublime_text_3_build_3176_x64.tar.bz2"
 	sudo mv "sublime_text_3" "/opt/"
 	sudo ln -s "${SUBL_DIR}sublime_text" "/usr/bin/sb"
 fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-professional-2017.2.4.tar.gz"
+	readonly PYCHARM_DL="pycharm-professional-2018.1.2.tar.gz"
 	wget "https://download.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
@@ -54,7 +51,7 @@ fi
 
 readonly WEBSTORM_DIR="/opt/webstorm/"
 if [[ ! -d "$WEBSTORM_DIR" ]]; then
-	readonly WEBSTORM_DL="WebStorm-2017.2.5.tar.gz"
+	readonly WEBSTORM_DL="WebStorm-2018.1.4.tar.gz"
 	wget "https://download.jetbrains.com/webstorm/${WEBSTORM_DL}"
 	sudo mkdir "$WEBSTORM_DIR"
 	sudo tar -xzf "$WEBSTORM_DL" -C "$WEBSTORM_DIR" --strip-components=1
@@ -63,7 +60,7 @@ fi
 
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2017.3.1.tar.gz"
+	readonly CLION_DL="CLion-2018.1.3.tar.gz"
 	wget "https://download.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
