@@ -11,6 +11,7 @@ sudo apt -y upgrade
 sudo apt --yes --force-yes install \
                            git \
                            build-essential \
+                           cmake \
                            python3.5 \
                            python3-venv \
                            python-pip \
@@ -22,7 +23,24 @@ sudo apt --yes --force-yes install \
                            sshfs \
                            openssh-server \
                            net-tools \
-                           tmux
+                           tmux \
+                           arandr \
+                           lxappearance \
+                           arc-theme \
+                           rofi \
+                           compton \
+                           i3blocks \
+                           pavucontrol
+
+mkdir -p ~/.fonts
+
+wget https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
+unzip fontawesome-free-5.0.13.zip
+cp fontawesome-free-5.0.13/use-on-desktop/*.otf ~/.fonts/
+
+wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+unzip master.zip
+mv YosemiteSanFranciscoFont-master/*.ttf ~/.fonts/
 
 if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
 	sudo apt --yes --force-yes install virtualbox-guest-additions-iso
@@ -80,13 +98,15 @@ cp "../bash_aliases" "${HOME}/.bash_aliases"
 cp "../gitconfig" "${HOME}/.gitconfig"
 cp "../tmux.conf" "${HOME}/.tmux.conf"
 cp -r "../i3/" "${HOME}/.config/"
-cp "../elcapitan2hr.jpg" "${HOME}/.config/i3/"
-sudo ln -s "${HOME}/.config/i3/lockscreen.sh" "/usr/bin/lockscreen"
+cp "gtk/gtkrc-2.0" "${HOME}/.gtkrc-2.0"
+cp "gtk/settings.ini" "${HOME}/.config/gtk-3.0/"
+mkdir -p "${HOME}/.config/rofi" && cp "/usr/share/rofi/themes/Pop-Dark.rasi" "${HOME}/.config/rofi/config.rasi"
+cp "../elcapitan2hr.jpg" "${HOME}/Pictures/wallpaper.jpg"
 
 mkdir -p "${HOME}/.ssh/"
 cp "../ssh/authorized_keys" "${HOME}/.ssh/" 
 
-rm -rf "${HOME}/Documents" "${HOME}/Music" "${HOME}/examples.desktop" "${HOME}/Pictures" \
+rm -rf "${HOME}/Documents" "${HOME}/Music" "${HOME}/examples.desktop" \
        "${HOME}/Public" "${HOME}/Templates" "${HOME}/Videos" "${HOME}/Firefox_wallpaper.png"
 
 # remap § key to #
