@@ -1,11 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-icon="$HOME/.config/i3/lockicon.png"
 tmpbg="$(mktemp).png"
-
-(( $# )) && { icon=$1; }
 
 scrot "$tmpbg"
 convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
-convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
-i3lock -u -i "$tmpbg"
+i3lock -i "$tmpbg"

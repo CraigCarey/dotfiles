@@ -41,6 +41,7 @@ alias dsz='du -sh'
 alias aptup='sudo apt update && sudo apt upgrade'
 alias aptin='sudo apt install -y'
 alias aptsch='apt-cache search'
+alias rds='~/.config/i3/dualscreen.sh'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'

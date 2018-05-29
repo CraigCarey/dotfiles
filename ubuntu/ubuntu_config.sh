@@ -1,36 +1,37 @@
 #!/bin/bash
 
-# install git, build-essential
-# Insert Guest additions CD
-# sudo ./VBoxLinuxAdditions.run
-# restart
+# For VM installs:
+#    Install git, build-essential
+#    Insert Guest additions CD
+#    sudo ./VBoxLinuxAdditions.run
+#    restart
 
-sudo apt update
-sudo apt -y upgrade
+sudo apt update && apt -y upgrade
 
 sudo apt --yes --force-yes install \
                            git \
                            build-essential \
                            cmake \
+                           meld \
                            python3.5 \
                            python3-venv \
                            python-pip \
-                           i3 \
                            tree \
-                           meld \
                            bless \
-                           feh \
-                           sshfs \
                            openssh-server \
+                           sshfs \
                            net-tools \
                            tmux \
                            arandr \
                            lxappearance \
                            arc-theme \
+                           i3 \
+                           i3blocks \
+                           feh \
                            rofi \
                            compton \
-                           i3blocks \
-                           pavucontrol
+                           pavucontrol \
+                           pasystray
 
 mkdir -p ~/.fonts
 
@@ -94,6 +95,7 @@ fi
 
 cp "bashrc" "${HOME}/.bashrc"
 sudo cp "../hosts" "/etc/hosts"
+sudo cp "../keyboard" "/etc/default/keyboard"
 cp "../bash_aliases" "${HOME}/.bash_aliases"
 cp "../gitconfig" "${HOME}/.gitconfig"
 cp "../tmux.conf" "${HOME}/.tmux.conf"
@@ -108,6 +110,3 @@ cp "../ssh/authorized_keys" "${HOME}/.ssh/"
 
 rm -rf "${HOME}/Documents" "${HOME}/Music" "${HOME}/examples.desktop" \
        "${HOME}/Public" "${HOME}/Templates" "${HOME}/Videos" "${HOME}/Firefox_wallpaper.png"
-
-# remap § key to #
-xmodmap -e "keycode 49 = numbersign"
