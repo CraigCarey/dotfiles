@@ -25,6 +25,7 @@ sudo apt --yes --force-yes install \
                            arandr \
                            lxappearance \
                            arc-theme \
+                           breeze-icon-theme \
                            i3 \
                            i3blocks \
                            feh \
