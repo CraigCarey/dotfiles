@@ -9,8 +9,7 @@ alias gbsa='git branch -a'
 alias gl='git log --graph --decorate'
 alias glo='gl --oneline'
 alias gd='git difftool'
-alias gde='git difftool --tool emerge'
-alias gdm='git difftool --tool meld'
+alias gdm='GTK_THEME=adwaita git difftool --tool meld'
 alias gcl='git clean -dfx'
 alias grhh='git reset --hard HEAD'
 function gitig() {
@@ -42,6 +41,7 @@ alias aptup='sudo apt update && sudo apt upgrade'
 alias aptin='sudo apt install -y'
 alias aptsch='apt-cache search'
 alias rds='~/.config/i3/dualscreen.sh'
+alias suslock='i3lock --color 2f343f && systemctl suspend'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
