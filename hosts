@@ -5,6 +5,7 @@
 192.168.0.8  proliant
 192.168.0.13 rpi
 192.168.0.10 beaglebone
+209.97.185.143 droplet
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
