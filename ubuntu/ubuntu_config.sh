@@ -13,6 +13,7 @@ sudo apt --yes --force-yes install \
                            build-essential \
                            cmake \
                            meld \
+                           valgrind \
                            python3.5 \
                            python3-venv \
                            python-pip \
