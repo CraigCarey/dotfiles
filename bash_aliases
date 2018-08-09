@@ -42,6 +42,16 @@ alias aptin='sudo apt install -y'
 alias aptsch='apt-cache search'
 alias rds='~/.config/i3/dualscreen.sh'
 alias suslock='i3lock --color 2f343f && systemctl suspend'
+alias sbn='sb -n'
+alias vgcheck='valgrind --leak-check=full --show-leak-kinds=all -v'
+function chk() {
+	local -r result=$?
+	if [[ $result == 0 ]]; then
+		printf "OK!\n"
+	else
+		printf "ERROR: $result\n"
+	fi
+}
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
