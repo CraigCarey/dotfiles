@@ -2,6 +2,7 @@
 alias gs='git status'
 alias gcm='git commit -am'
 alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
 alias gp='git push'
 alias gpr='git pull; git reset --hard FETCH_HEAD'
 alias grso='git remote show origin'
