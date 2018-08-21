@@ -13,6 +13,8 @@ alias gd='git difftool'
 alias gdm='GTK_THEME=adwaita git difftool --tool meld'
 alias gcl='git clean -dfx'
 alias grhh='git reset --hard HEAD'
+alias gdrb='git push --delete origin'
+alias gdlb='git branch -d'
 function gitig() {
 	echo "$1" >> .gitignore
 }
@@ -52,6 +54,12 @@ function chk() {
 	else
 		printf "ERROR: $result\n"
 	fi
+}
+function mkcd() {
+	mkdir "$1" && cd "$1"
+}
+function findall() {
+	find / -iname "$1" 2>/dev/null
 }
 
 # lubuntu specific...
