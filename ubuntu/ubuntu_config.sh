@@ -106,6 +106,7 @@ cp "gtk/gtkrc-2.0" "${HOME}/.gtkrc-2.0"
 cp "gtk/settings.ini" "${HOME}/.config/gtk-3.0/"
 mkdir -p "${HOME}/.config/rofi" && cp "/usr/share/rofi/themes/Pop-Dark.rasi" "${HOME}/.config/rofi/config.rasi"
 cp "../elcapitan2hr.jpg" "${HOME}/Pictures/wallpaper.jpg"
+cp -r "../cheatsheets/" "$HOME"
 
 mkdir -p "${HOME}/.ssh/"
 cp "../ssh/authorized_keys" "${HOME}/.ssh/" 
