@@ -16,7 +16,7 @@ alias grhh='git reset --hard HEAD'
 alias gdrb='git push --delete origin'
 alias gdlb='git branch -d'
 function gitig() {
-	echo "$1" >> .gitignore
+	printf "$1\n" >> .gitignore
 }
 
 # make
@@ -33,12 +33,11 @@ alias ll='ls -l'
 # docker
 alias dils='docker image ls'
 alias dcls='docker ps -a'
-alias dcls='docker ps -aq'
 alias drun='docker run'
 alias drunt='docker run -it'
 alias dstart='docker start --attach'
 alias ddeli='docker rmi -f'
-alias ddeli='docker rm'
+alias ddelc='docker rm'
 alias ddelai='docker rmi -f $(docker images -q)'
 alias ddelac='docker rm -f $(docker ps -aq)'
 
@@ -72,6 +71,13 @@ function mkcd() {
 }
 function findall() {
 	find / -iname "$1" 2>/dev/null
+}
+function cheet() {
+	printf "\n"
+	cat ~/cheatsheets/"$1"
+	printf "\n"
+	alias | grep "$1"
+	printf "\n"
 }
 
 # lubuntu specific...

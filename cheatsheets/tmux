@@ -1,0 +1,32 @@
+tmux command prefix (tcp):        ctrl+b
+
+Sessions
+    Start new session:            tmux
+    Start new named session:      tmux new -s <sessionname>
+    Attach:                       tmux a
+    Attach to named session:      tmux a -t <sessionname>
+    Detach:                       tcp + d
+    List sessions:                tmux ls
+    Kill session:                 tmux kill-session -t <sessionname>
+
+Windows
+    Create new window:            tcp + c
+    Rename window:                tcp + u
+    Kill window:                  tcp + &
+
+Navigating
+    Previous window:              tcp + p
+    Next window:                  tcp + n
+    List windows:                 tcp + w
+
+Panes
+    Split window vertically:      tcp + %
+    Split window horizontally:    tcp + "
+    Switch panes:                 tcp + o
+    Move panes:                   hold tcp + o
+    Kill pane:                    tcp + x
+    Toggle layouts:               tcp + space
+    Display pane number:          tcp + q
+
+Misc
+    Big clock:                    tcp + t

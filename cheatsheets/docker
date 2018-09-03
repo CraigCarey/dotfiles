@@ -1,30 +1,30 @@
 Info
-	image ls								# list images
-	ps -a									# list containers
-	ps -aq									# list container IDs only
-	top <container name>					# show processes running in container
+    image ls                # list images
+    ps -a                   # list containers
+    ps -aq                  # list container IDs only
+    top <container name>    # show processes running in container
 
 Building
-	build /path/to/Dockerfile				# create an image from the Dockerfile
-	build -t snpe .							# create an image tagged as 'snpe'
+    build /path/to/Dockerfile    # create an image from the Dockerfile
+    build -t snpe .              # create an image tagged as 'snpe'
 
 Running
-	run hello-world							# run an image (downloading if necessary)
-	run -it  								# allocate a pseudo-tty & keep stdin attached
-	run --name foo							# give the container the name 'foo'
-	run -e EV="Hula!"						# set the environment variable EV
-	
-	start --attach <container name>			# reuse an existing container
-	stop <container name>
+    run hello-world                    # run an image (downloading if necessary)
+    run -it                            # allocate a pseudo-tty & keep stdin attached
+    run --name foo                     # give the container the name 'foo'
+    run -e EV="Hula!"                  # set the environment variable EV
+    
+    start --attach <container name>    # reuse an existing container
+    stop <container name>
 
-	docker run -v /full/path/to/html/directory:/usr/share/nginx/html:ro -p 8080:80 -d nginx
-	
-		-v /hostdir/:/dockerdir/:ro			# mount hostdir on dockerdir as readonly
-		-p 8080:80							# map container port 80 to 80880 on the host
-		-d nginx							# detach the container (no interaction)
+    docker run -v /full/path/to/html/directory:/usr/share/nginx/html:ro -p 8080:80 -d nginx
+    
+        -v /hostdir/:/dockerdir/:ro    # mount hostdir on dockerdir as readonly
+        -p 8080:80                     # map container port 80 to 80880 on the host
+        -d nginx                       # detach the container (no interaction)
 
-Deleting	
-	rm <container name>
-	rm -f $(docker ps -aq)					# delete all containers (by ID)
-	rmi <image>								# delete an image
-	rmi -f $(docker images -q)				# delete all images (by ID)
+Deleting
+    rm <container name>
+    rm -f $(docker ps -aq)        # delete all containers (by ID)
+    rmi <image>                   # delete an image
+    rmi -f $(docker images -q)    # delete all images (by ID)
