@@ -75,7 +75,7 @@ function findall() {
 function cheet() {
 	printf "\n"
 	cat ~/cheatsheets/"$1"
-	printf "\n"
+	printf "\n\n"
 	alias | grep "$1"
 	printf "\n"
 }

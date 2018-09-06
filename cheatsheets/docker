@@ -6,13 +6,13 @@ Info
 
 Building
     build /path/to/Dockerfile    # create an image from the Dockerfile
-    build -t snpe .              # create an image tagged as 'snpe'
+    build --rm -t snpe .         # create an image tagged as 'snpe'
 
 Running
     run hello-world                    # run an image (downloading if necessary)
     run -it                            # allocate a pseudo-tty & keep stdin attached
     run --name foo                     # give the container the name 'foo'
-    run -e EV="Hula!"                  # set the environment variable EV
+    run -e EV="Hula!"                  # set the environment variable EV    
     
     start --attach <container name>    # reuse an existing container
     stop <container name>
@@ -28,3 +28,6 @@ Deleting
     rm -f $(docker ps -aq)        # delete all containers (by ID)
     rmi <image>                   # delete an image
     rmi -f $(docker images -q)    # delete all images (by ID)
+
+    # Delete all untagged images
+    docker rmi $(docker image ls | grep "^<none>" | awk '{print $3}')
