@@ -34,7 +34,7 @@ alias ll='ls -l'
 alias dils='docker image ls'
 alias dcls='docker ps -a'
 alias drun='docker run'
-alias drunt='docker run -it'
+alias drunt='docker run -it --entrypoint=/bin/bash'
 alias dstart='docker start --attach'
 alias ddeli='docker rmi -f'
 alias ddelc='docker rm'
@@ -58,6 +58,9 @@ alias rds='~/.config/i3/dualscreen.sh'
 alias suslock='i3lock --color 2f343f && systemctl suspend'
 alias sbn='sb -n'
 alias vgcheck='valgrind --leak-check=full --show-leak-kinds=all -v'
+alias speed-test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
+alias ping8='ping 8.8.8.8'
+alias rsadb='sudo adb kill-server && sudo adb start-server'
 function chk() {
 	local -r result=$?
 	if [[ $result == 0 ]]; then
@@ -72,6 +75,9 @@ function mkcd() {
 function findall() {
 	find / -iname "$1" 2>/dev/null
 }
+function findhere() {
+	find . -iname "$1" 2>/dev/null
+}
 function cheet() {
 	printf "\n"
 	cat ~/cheatsheets/"$1"
@@ -79,6 +85,10 @@ function cheet() {
 	alias | grep "$1"
 	printf "\n"
 }
+function rmtrw() {
+	sudo mount -o remount,rw "$1" "$1"
+}
+alias weath='curl wttr.in/Belfast'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
