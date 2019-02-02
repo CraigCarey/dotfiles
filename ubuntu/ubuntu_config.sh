@@ -33,7 +33,8 @@ sudo apt --yes --force-yes install \
                            rofi \
                            compton \
                            pavucontrol \
-                           pasystray
+                           pasystray \
+                           blueman
 
 mkdir -p ~/.fonts
 
