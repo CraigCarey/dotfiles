@@ -64,25 +64,16 @@ fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-professional-2018.1.2.tar.gz"
+	readonly PYCHARM_DL="pycharm-community-2018.3.4.tar.gz"
 	wget "https://download.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
 	sudo ln -s "${PYCHARM_DIR}bin/pycharm.sh" "/usr/bin/pycharm"
 fi
 
-readonly WEBSTORM_DIR="/opt/webstorm/"
-if [[ ! -d "$WEBSTORM_DIR" ]]; then
-	readonly WEBSTORM_DL="WebStorm-2018.1.4.tar.gz"
-	wget "https://download.jetbrains.com/webstorm/${WEBSTORM_DL}"
-	sudo mkdir "$WEBSTORM_DIR"
-	sudo tar -xzf "$WEBSTORM_DL" -C "$WEBSTORM_DIR" --strip-components=1
-	sudo ln -s "${WEBSTORM_DIR}bin/webstorm.sh" "/usr/bin/webstorm"
-fi
-
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2018.1.3.tar.gz"
+	readonly CLION_DL="CLion-2018.3.4.tar.gz"
 	wget "https://download.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
@@ -90,14 +81,13 @@ if [[ ! -d "$CLION_DIR" ]]; then
 fi
 
 if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
 	sudo apt-get update
 	sudo apt-get install spotify-client
 fi
 
 cp "bashrc" "${HOME}/.bashrc"
-sudo cp "../hosts" "/etc/hosts"
 sudo cp "../keyboard" "/etc/default/keyboard"
 cp "../bash_aliases" "${HOME}/.bash_aliases"
 cp "../gitconfig" "${HOME}/.gitconfig"
