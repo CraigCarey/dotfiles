@@ -89,7 +89,7 @@ fi
 
 cp "bashrc" "${HOME}/.bashrc"
 sudo cp "../keyboard" "/etc/default/keyboard"
-cp "../bash_aliases" "${HOME}/.bash_aliases"
+cp "bash_aliases" "${HOME}/.bash_aliases"
 cp "../gitconfig" "${HOME}/.gitconfig"
 cp "../tmux.conf" "${HOME}/.tmux.conf"
 cp -r "../i3/" "${HOME}/.config/"
