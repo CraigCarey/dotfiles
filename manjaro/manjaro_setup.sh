@@ -10,7 +10,7 @@ set -eu
 
 sudo pacman -Syu
 
-sudo pacman -Syu \
+sudo pacman -Sy \
             git \
             unzip \
             cmake \
@@ -30,13 +30,10 @@ sudo pacman -Syu \
             compton \
             pavucontrol \
             pasystray \
-            blueman
-
-mkdir -p ~/.fonts
-
-wget https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
-unzip fontawesome-free-5.0.13.zip
-cp fontawesome-free-5.0.13/use-on-desktop/*.otf ~/.fonts/
+            blueman \
+            network-manager-applet \
+            ttf-font-awesome \
+            tldr
 
 wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
 unzip master.zip
