@@ -34,7 +34,8 @@ sudo apt --yes --force-yes install \
                            compton \
                            pavucontrol \
                            pasystray \
-                           blueman
+                           blueman \
+                           xclip
 
 mkdir -p ~/.fonts
 

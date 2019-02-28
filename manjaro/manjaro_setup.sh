@@ -33,7 +33,8 @@ sudo pacman -Sy \
             blueman \
             network-manager-applet \
             ttf-font-awesome \
-            tldr
+            tldr \
+            xclip
 
 wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
 unzip master.zip
