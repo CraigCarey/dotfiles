@@ -57,16 +57,16 @@ fi
 
 readonly SUBL_DIR="/opt/sublime_text_3/"
 if [[ ! -d "$SUBL_DIR" ]]; then
-	wget "https://download.sublimetext.com/sublime_text_3_build_3176_x64.tar.bz2"
-	tar vxjf "sublime_text_3_build_3176_x64.tar.bz2"
+	wget "https://download.sublimetext.com/sublime_text_3_build_3207_x64.tar.bz2"
+	tar vxjf "sublime_text_3*.tar.bz2"
 	sudo mv "sublime_text_3" "/opt/"
 	sudo ln -s "${SUBL_DIR}sublime_text" "/usr/bin/sb"
 fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-community-2018.3.4.tar.gz"
-	wget "https://download.jetbrains.com/python/${PYCHARM_DL}"
+	readonly PYCHARM_DL="pycharm-community-2019.1.1.tar.gz"
+	wget "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
 	sudo ln -s "${PYCHARM_DIR}bin/pycharm.sh" "/usr/bin/pycharm"
@@ -74,8 +74,8 @@ fi
 
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2018.3.4.tar.gz"
-	wget "https://download.jetbrains.com/cpp/${CLION_DL}"
+	readonly CLION_DL="CLion-2019.1.2.tar.gz"
+	wget "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
 	sudo ln -s "${CLION_DIR}bin/clion.sh" "/usr/bin/clion"
