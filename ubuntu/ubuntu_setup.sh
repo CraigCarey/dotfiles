@@ -58,7 +58,7 @@ fi
 readonly SUBL_DIR="/opt/sublime_text_3/"
 if [[ ! -d "$SUBL_DIR" ]]; then
 	wget "https://download.sublimetext.com/sublime_text_3_build_3207_x64.tar.bz2"
-	tar vxjf "sublime_text_3*.tar.bz2"
+	tar vxjf sublime_text_3*.tar.bz2
 	sudo mv "sublime_text_3" "/opt/"
 	sudo ln -s "${SUBL_DIR}sublime_text" "/usr/bin/sb"
 fi

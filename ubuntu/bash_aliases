@@ -21,10 +21,11 @@ function gitig() {
 	printf "$1\n" >> .gitignore
 }
 
-# make
+# building
 alias mcl='make clean -s'
 alias mch='make check -s'
 alias mk='make -s'
+alias cmk='cmake .. && make -j$(nproc)'
 
 # terminal
 alias cls='printf "\033c"'
@@ -74,7 +75,6 @@ alias suslock='i3lock --color 2f343f && systemctl suspend'
 alias vgcheck='valgrind --leak-check=full --show-leak-kinds=all -v'
 alias rsadb='sudo adb kill-server && sudo adb start-server'
 alias tarx='tar -xvf'
-
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
