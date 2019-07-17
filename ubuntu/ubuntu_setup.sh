@@ -37,6 +37,11 @@ sudo apt --yes --force-yes install \
                            blueman \
                            xclip
 
+
+readonly PIA_DL="pia-linux-1.3.2-02865.run"
+wget "https://installers.privateinternetaccess.com/download/${PIA_DL}"
+bash "$PIA_DL"
+
 mkdir -p ~/.fonts
 
 wget https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
@@ -65,7 +70,7 @@ fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-community-2019.1.1.tar.gz"
+	readonly PYCHARM_DL="pycharm-community-2019.1.3.tar.gz"
 	wget "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
@@ -74,7 +79,7 @@ fi
 
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2019.1.2.tar.gz"
+	readonly CLION_DL="CLion-2019.1.4.tar.gz"
 	wget "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
