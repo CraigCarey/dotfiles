@@ -35,20 +35,21 @@ sudo apt --yes --force-yes install \
                            pavucontrol \
                            pasystray \
                            blueman \
-                           xclip
+                           xclip \
+                           axel
 
 
 readonly PIA_DL="pia-linux-1.3.2-02865.run"
-wget "https://installers.privateinternetaccess.com/download/${PIA_DL}"
+axel "https://installers.privateinternetaccess.com/download/${PIA_DL}"
 bash "$PIA_DL"
 
 mkdir -p ~/.fonts
 
-wget https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
+axel https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
 unzip fontawesome-free-5.0.13.zip
 cp fontawesome-free-5.0.13/use-on-desktop/*.otf ~/.fonts/
 
-wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+axel https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
 unzip master.zip
 mv YosemiteSanFranciscoFont-master/*.ttf ~/.fonts/
 
@@ -62,7 +63,7 @@ fi
 
 readonly SUBL_DIR="/opt/sublime_text_3/"
 if [[ ! -d "$SUBL_DIR" ]]; then
-	wget "https://download.sublimetext.com/sublime_text_3_build_3207_x64.tar.bz2"
+	axel "https://download.sublimetext.com/sublime_text_3_build_3207_x64.tar.bz2"
 	tar vxjf sublime_text_3*.tar.bz2
 	sudo mv "sublime_text_3" "/opt/"
 	sudo ln -s "${SUBL_DIR}sublime_text" "/usr/bin/sb"
@@ -71,7 +72,7 @@ fi
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
 	readonly PYCHARM_DL="pycharm-community-2019.1.3.tar.gz"
-	wget "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
+	axel "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
 	sudo ln -s "${PYCHARM_DIR}bin/pycharm.sh" "/usr/bin/pycharm"
@@ -80,7 +81,7 @@ fi
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
 	readonly CLION_DL="CLion-2019.1.4.tar.gz"
-	wget "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
+	axel "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
 	sudo ln -s "${CLION_DIR}bin/clion.sh" "/usr/bin/clion"
