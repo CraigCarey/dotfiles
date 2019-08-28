@@ -75,6 +75,7 @@ alias suslock='i3lock --color 2f343f && systemctl suspend'
 alias vgcheck='valgrind --leak-check=full --show-leak-kinds=all -v'
 alias rsadb='sudo adb kill-server && sudo adb start-server'
 alias tarx='tar -xvf'
+alias cld='clion diff'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
@@ -118,3 +119,5 @@ function cheet() {
 function rmtrw() {
 	sudo mount -o remount,rw "$1" "$1"
 }
+
+alias cvtest='docker run --runtime=nvidia --device /dev/dri -v $PWD:/home/cv_sdk/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'
