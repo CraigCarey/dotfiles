@@ -60,6 +60,8 @@ alias netscan='ifconfig | grep broadcast | arp -a'
 alias speed-test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias ping8='ping 8.8.8.8'
 alias weath='curl wttr.in/Belfast'
+alias serveos='ssh -R anvccdt:22:localhost:22 serveo.net'
+alias serveoc='ssh -J serveo.net craig@anvccdt'
 
 # misc
 alias cpr='cp -r'

@@ -1,0 +1,5 @@
+# Request port forwarding from the server
+ssh -R anvccdt:22:localhost:22 serveo.net
+
+# Connect to port from remote client
+ssh -J serveo.net craig@anvccdt
