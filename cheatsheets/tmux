@@ -11,7 +11,7 @@ Sessions
 
 Windows
     Create new window:            tcp + c
-    Rename window:                tcp + u
+    Rename window:                tcp + ,
     Kill window:                  tcp + &
 
 Navigating

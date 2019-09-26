@@ -17,6 +17,7 @@ alias gdrb='git push --delete origin'
 alias gdlb='git branch -d'
 alias gch='git checkout'
 alias gnb='git checkout -b'
+alias grpo='git remote prune origin'
 function gitig() {
 	printf "$1\n" >> .gitignore
 }

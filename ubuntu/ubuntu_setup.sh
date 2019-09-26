@@ -39,7 +39,7 @@ sudo apt --yes --force-yes install \
                            axel
 
 
-readonly PIA_DL="pia-linux-1.3.2-02865.run"
+readonly PIA_DL="pia-linux-1.4-03180.run"
 axel "https://installers.privateinternetaccess.com/download/${PIA_DL}"
 bash "$PIA_DL"
 
@@ -71,7 +71,7 @@ fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-community-2019.1.3.tar.gz"
+	readonly PYCHARM_DL="pycharm-community-2019.2.3.tar.gz"
 	axel "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
@@ -80,7 +80,7 @@ fi
 
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2019.1.4.tar.gz"
+	readonly CLION_DL="CLion-2019.2.2.tar.gz"
 	axel "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
@@ -107,7 +107,7 @@ cp "../elcapitan2hr.jpg" "${HOME}/Pictures/wallpaper.jpg"
 cp -r "../cheatsheets/" "$HOME"
 
 mkdir -p "${HOME}/.ssh/"
-cp "../ssh/authorized_keys" "${HOME}/.ssh/" 
+cp "../ssh/authorized_keys" "${HOME}/.ssh/"
 
 rm -rf "${HOME}/Documents" "${HOME}/Music" "${HOME}/examples.desktop" \
        "${HOME}/Public" "${HOME}/Templates" "${HOME}/Videos" "${HOME}/Firefox_wallpaper.png"
