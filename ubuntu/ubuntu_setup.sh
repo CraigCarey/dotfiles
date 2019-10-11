@@ -36,10 +36,11 @@ sudo apt --yes --force-yes install \
                            pasystray \
                            blueman \
                            xclip \
-                           axel
+                           axel \
+                           curl
 
 
-readonly PIA_DL="pia-linux-1.4-03180.run"
+readonly PIA_DL="pia-linux-1.5.1-03605.run"
 axel "https://installers.privateinternetaccess.com/download/${PIA_DL}"
 bash "$PIA_DL"
 
@@ -88,10 +89,9 @@ if [[ ! -d "$CLION_DIR" ]]; then
 fi
 
 if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-	echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-	sudo apt-get update
-	sudo apt-get install spotify-client
+	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+	sudo apt-get update && sudo apt-get install spotify-client
 fi
 
 cp "bashrc" "${HOME}/.bashrc"
