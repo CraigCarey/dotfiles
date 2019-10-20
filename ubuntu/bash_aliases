@@ -124,3 +124,7 @@ function rmtrw() {
 }
 
 alias cvtest='docker run --runtime=nvidia --device /dev/dri -v $PWD:/home/cv_sdk/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'
+
+function xbl() {
+	xbacklight -set "$1"
+}

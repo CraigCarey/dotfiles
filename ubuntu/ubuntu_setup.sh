@@ -24,6 +24,7 @@ sudo apt --yes --force-yes install \
                            net-tools \
                            tmux \
                            arandr \
+                           xbacklight \
                            lxappearance \
                            arc-theme \
                            breeze-icon-theme \
