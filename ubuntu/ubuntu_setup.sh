@@ -41,8 +41,8 @@ sudo apt --yes --force-yes install \
                            curl
 
 
-readonly PIA_DL="pia-linux-1.5.1-03605.run"
-axel "https://installers.privateinternetaccess.com/download/${PIA_DL}"
+readonly PIA_DL="pia-linux-1.7-03949.run"
+axel "https://installers.privateinternetaccess.com/download/$PIA_DL"
 bash "$PIA_DL"
 
 mkdir -p ~/.fonts
@@ -65,7 +65,7 @@ fi
 
 readonly SUBL_DIR="/opt/sublime_text_3/"
 if [[ ! -d "$SUBL_DIR" ]]; then
-	axel "https://download.sublimetext.com/sublime_text_3_build_3207_x64.tar.bz2"
+	axel "https://download.sublimetext.com/sublime_text_3_build_3211_x64.tar.bz2"
 	tar vxjf sublime_text_3*.tar.bz2
 	sudo mv "sublime_text_3" "/opt/"
 	sudo ln -s "${SUBL_DIR}sublime_text" "/usr/bin/sb"
@@ -73,7 +73,7 @@ fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-community-2019.2.3.tar.gz"
+	readonly PYCHARM_DL="pycharm-community-2019.3.1.tar.gz"
 	axel "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
@@ -82,7 +82,7 @@ fi
 
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2019.2.2.tar.gz"
+	readonly CLION_DL="CLion-2019.3.2.tar.gz"
 	axel "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
