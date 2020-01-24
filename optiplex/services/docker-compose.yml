@@ -1,0 +1,70 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - /home/craig/nextcloud/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+    env_file:
+      - db.env
+
+  app:
+    image: nextcloud:apache
+    restart: always
+    volumes:
+      - /media/4tb/nextcloud/app:/var/www/html
+    environment:
+      - VIRTUAL_HOST=cynitec.uk
+      - LETSENCRYPT_HOST=cynitec.uk
+      - LETSENCRYPT_EMAIL=cynitec@gmail.com
+      - MYSQL_HOST=db
+    env_file:
+      - db.env
+    depends_on:
+      - db
+    networks:
+      - proxy-tier
+      - default
+
+  proxy:
+    build: ./proxy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+    volumes:
+      - /home/craig/nextcloud/certs:/etc/nginx/certs:ro
+      - /home/craig/nextcloud/vhost.d:/etc/nginx/vhost.d
+      - /home/craig/nextcloud/html:/usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - proxy-tier
+
+  letsencrypt-companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    volumes:
+      - /home/craig/nextcloud/certs:/etc/nginx/certs
+      - /home/craig/nextcloud/vhost.d:/etc/nginx/vhost.d
+      - /home/craig/nextcloud/html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - proxy-tier
+    depends_on:
+      - proxy
+
+volumes:
+  db:
+  nextcloud:
+  certs:
+  vhost.d:
+  html:
+
+networks:
+  proxy-tier:
