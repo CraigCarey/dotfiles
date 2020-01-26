@@ -6,7 +6,7 @@ services:
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     restart: always
     volumes:
-      - ~/nextcloud/mariadb:/var/lib/mysql
+      - ./nextcloud/mariadb:/var/lib/mysql
     env_file:
       - db.env
 
@@ -50,9 +50,9 @@ services:
     labels:
       com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
     volumes:
-      - ~/nextcloud/certs:/etc/nginx/certs:ro
-      - ~/nextcloud/vhost.d:/etc/nginx/vhost.d
-      - ~/nextcloud/html:/usr/share/nginx/html
+      - ./nextcloud/certs:/etc/nginx/certs:ro
+      - ./nextcloud/vhost.d:/etc/nginx/vhost.d
+      - ./nextcloud/html:/usr/share/nginx/html
       - /var/run/docker.sock:/tmp/docker.sock:ro
     networks:
       - proxy-tier
@@ -61,14 +61,30 @@ services:
     image: jrcs/letsencrypt-nginx-proxy-companion
     restart: always
     volumes:
-      - ~/nextcloud/certs:/etc/nginx/certs
-      - ~/nextcloud/vhost.d:/etc/nginx/vhost.d
-      - ~/nextcloud/html:/usr/share/nginx/html
+      - ./nextcloud/certs:/etc/nginx/certs
+      - ./nextcloud/vhost.d:/etc/nginx/vhost.d
+      - ./nextcloud/html:/usr/share/nginx/html
       - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - proxy-tier
     depends_on:
       - proxy
+
+  jellyfin:
+    image: jellyfin/jellyfin
+    user: 1000:1000
+    restart: always
+    volumes:
+      - ./jellyfin/config:/config
+      - ./jellyfin/cache:/cache
+      - ~/4tb/media/:/media
+    environment:
+      - VIRTUAL_HOST=jellyfin.cynitec.uk
+      - LETSENCRYPT_HOST=jellyfin.cynitec.uk
+      - LETSENCRYPT_EMAIL=cynitec@gmail.com
+    networks:
+      - proxy-tier
+      - default
 
 volumes:
   db:
