@@ -11,6 +11,6 @@
 #
 # By default this script does nothing.
 
-su craig -c '/usr/bin/autossh -fNR 6022:localhost:22 -i /home/craig/.ssh/id_rsa root@cynitec.uk'
+su craig -c '/usr/bin/autossh -fNR 6022:localhost:22 -i /home/craig/.ssh/id_rsa craig@example.com'
 
 exit 0
