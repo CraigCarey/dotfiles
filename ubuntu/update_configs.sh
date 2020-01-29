@@ -2,6 +2,7 @@
 
 cp "/etc/rc.local" .
 cp "${HOME}/.bashrc" .
+cp "${HOME}/.zshrc" .
 cp "/etc/default/keyboard" ..
 cp "${HOME}/.bash_aliases" .
 cp "${HOME}/.gitconfig" ..

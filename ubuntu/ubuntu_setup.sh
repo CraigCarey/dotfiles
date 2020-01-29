@@ -38,8 +38,14 @@ sudo apt --yes --force-yes install \
                            blueman \
                            xclip \
                            axel \
-                           curl
+                           curl \
+                           zsh \
+                           powerline fonts-powerline
 
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh-syntax-highlighting" --depth 1
+cd ~/.oh-my-zsh && upgrade_oh_my_zsh && cd
+chsh -s $(which zsh)
 
 readonly PIA_DL="pia-linux-1.7-03949.run"
 axel "https://installers.privateinternetaccess.com/download/$PIA_DL"
@@ -96,6 +102,7 @@ if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
 fi
 
 cp ".bashrc" "${HOME}"
+cp ".zshrc" "${HOME}"
 sudo cp "../keyboard" "/etc/default/"
 cp ".bash_aliases" "${HOME}"
 cp "../.gitconfig" "${HOME}"
