@@ -95,13 +95,13 @@ if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
 	sudo apt-get update && sudo apt-get install spotify-client
 fi
 
-cp "bashrc" "${HOME}/.bashrc"
-sudo cp "../keyboard" "/etc/default/keyboard"
-cp "bash_aliases" "${HOME}/.bash_aliases"
-cp "../gitconfig" "${HOME}/.gitconfig"
-cp "../tmux.conf" "${HOME}/.tmux.conf"
+cp ".bashrc" "${HOME}"
+sudo cp "../keyboard" "/etc/default/"
+cp ".bash_aliases" "${HOME}"
+cp "../.gitconfig" "${HOME}"
+cp "../.tmux.conf" "${HOME}"
 cp -r "i3/" "${HOME}/.config/"
-cp "gtk/gtkrc-2.0" "${HOME}/.gtkrc-2.0"
+cp "gtk/.gtkrc-2.0" "${HOME}/"
 cp "gtk/settings.ini" "${HOME}/.config/gtk-3.0/"
 mkdir -p "${HOME}/.config/rofi" && cp "/usr/share/rofi/themes/Pop-Dark.rasi" "${HOME}/.config/rofi/config.rasi"
 cp "../elcapitan2hr.jpg" "${HOME}/Pictures/wallpaper.jpg"
