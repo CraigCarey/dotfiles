@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eu
+
+readonly SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
+
+pushd "$SCRIPT_DIR" > /dev/null
 
 # For VM installs:
 #    Install git, build-essential
@@ -6,7 +12,7 @@
 #    sudo ./VBoxLinuxAdditions.run
 #    restart
 
-sudo apt update && apt -y upgrade
+sudo apt update && sudo apt -y upgrade
 
 sudo apt --yes --force-yes install \
                            git \
@@ -42,26 +48,29 @@ sudo apt --yes --force-yes install \
                            zsh \
                            powerline fonts-powerline
 
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh-syntax-highlighting" --depth 1
-cd ~/.oh-my-zsh && upgrade_oh_my_zsh && cd
-chsh -s $(which zsh)
+if [[ ! -d ~/.oh-my-zsh ]]; then
+  git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh-syntax-highlighting" --depth 1
+  chsh -s $(which zsh)
+fi
 
-readonly PIA_DL="pia-linux-1.7-03949.run"
-axel "https://installers.privateinternetaccess.com/download/$PIA_DL"
-bash "$PIA_DL"
+if [[ ! -d /opt/piavpn/ ]]; then
+  readonly PIA_DL="pia-linux-1.7-03949.run"
+  axel "https://installers.privateinternetaccess.com/download/$PIA_DL"
+  bash "$PIA_DL"
+fi
 
-mkdir -p ~/.fonts
+if [[ ! -f fontawesome-free-5.0.13.zip ]]; then
+  mkdir -p ~/.fonts
+  axel https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
+  unzip -o fontawesome-free-5.0.13.zip
+  cp fontawesome-free-5.0.13/use-on-desktop/*.otf ~/.fonts/
+  axel https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+  unzip -o YosemiteSanFranciscoFont-master.zip
+  mv YosemiteSanFranciscoFont-master/*.ttf ~/.fonts/
+fi
 
-axel https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
-unzip fontawesome-free-5.0.13.zip
-cp fontawesome-free-5.0.13/use-on-desktop/*.otf ~/.fonts/
-
-axel https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
-unzip master.zip
-mv YosemiteSanFranciscoFont-master/*.ttf ~/.fonts/
-
-if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
+if [[ $(sudo dmi$xdecode -s system-product-name) =~ "VirtualBox" ]]; then
 	sudo apt --yes --force-yes install virtualbox-guest-additions-iso
 	sudo adduser "$USER" vboxusers
 	sudo adduser "$USER" vboxsf
@@ -96,10 +105,12 @@ if [[ ! -d "$CLION_DIR" ]]; then
 fi
 
 if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
-	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+	curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 	sudo apt-get update && sudo apt-get install spotify-client
 fi
+
+pushd "$SCRIPT_DIR" > /dev/null
 
 cp ".bashrc" "${HOME}"
 cp ".zshrc" "${HOME}"
@@ -119,3 +130,5 @@ cp "../ssh/authorized_keys" "${HOME}/.ssh/"
 
 rm -rf "${HOME}/Documents" "${HOME}/Music" "${HOME}/examples.desktop" \
        "${HOME}/Public" "${HOME}/Templates" "${HOME}/Videos" "${HOME}/Firefox_wallpaper.png"
+
+sudo apt autoremove -y
