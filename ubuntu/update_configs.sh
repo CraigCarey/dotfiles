@@ -13,3 +13,4 @@ cp "${HOME}/.config/gtk-3.0/settings.ini" "gtk/"
 cp -r "$HOME/cheatsheets/" .. 
 cp "${HOME}/.ssh/authorized_keys" "../ssh/"
 cp "${HOME}/.ssh/ssh_config" "../ssh/"
+cp "/etc/network/interfaces" .
