@@ -27,6 +27,7 @@ alias mcl='make clean -s'
 alias mch='make check -s'
 alias mk='make -s'
 alias cmk='cmake .. && make -j$(nproc)'
+alias wchk='$(cmk) | grep -i warn'
 
 # terminal
 alias cls='printf "\033c"'
@@ -68,6 +69,7 @@ alias aptsch='apt-cache search'
 # networking
 alias extip='curl ipinfo.io/ip'
 alias netscan='ifconfig | grep broadcast | arp -a'
+alias arpscn='sudo arp-scan -I enp4s0 -l'
 alias speed-test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias ping8='ping 8.8.8.8'
 alias weath='curl wttr.in/Belfast'
@@ -100,6 +102,7 @@ alias tmuxns='tmux new -s'
 alias tmuxls='tmux ls'
 alias tmuxas='tmux a -t'
 alias tmuxks='tmux kill-session -t'
+alias tmuxka='tmux kill-session -a'
 
 function chk() {
 	local -r result=$?
@@ -137,3 +140,6 @@ function rmtrw() {
 function xbl() {
 	xbacklight -set "$1"
 }
+
+alias cvshell='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk'
+alias cvtest='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'

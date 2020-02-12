@@ -9,6 +9,7 @@ Sessions
     List sessions:                tmux ls
     List sessions:                tcp + s
     Kill session:                 tmux kill-session -t <sessionname>
+    Kill all (other) sessions:    tmux kill-session -a
     Rename session:               tcp + $
 
 Windows
