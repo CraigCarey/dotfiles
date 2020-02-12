@@ -7,8 +7,9 @@ Sessions
     Attach to named session:      tmux a -t <sessionname>
     Detach:                       tcp + d
     List sessions:                tmux ls
+    List sessions:                tcp + s
     Kill session:                 tmux kill-session -t <sessionname>
-    Rename current session        tcp + $
+    Rename session:               tcp + $
 
 Windows
     Create new window:            tcp + c
@@ -31,5 +32,5 @@ Panes
 
 Misc
     Big clock:                    tcp + t
-    Scroll mode                   tcp + [          (q to quit)
-    Pg up mode                    tcp + PgUp       (q to quit)
+    Scroll mode:                  tcp + [          (q to quit)
+    Pg up mode:                   tcp + PgUp       (q to quit)
