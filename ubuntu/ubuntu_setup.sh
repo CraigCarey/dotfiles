@@ -46,13 +46,16 @@ sudo apt --yes --force-yes install \
                            axel \
                            curl \
                            zsh \
-                           powerline fonts-powerline
+                           powerline \
+                           fonts-powerline
 
 if [[ ! -d ~/.oh-my-zsh ]]; then
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.zsh-syntax-highlighting" --depth 1
   chsh -s $(which zsh)
 fi
+
+git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 
 if [[ ! -d /opt/piavpn/ ]]; then
   readonly PIA_DL="pia-linux-1.7-03949.run"

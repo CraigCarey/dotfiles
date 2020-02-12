@@ -8,6 +8,7 @@ Sessions
     Detach:                       tcp + d
     List sessions:                tmux ls
     Kill session:                 tmux kill-session -t <sessionname>
+    Rename current session        tcp + $
 
 Windows
     Create new window:            tcp + c
@@ -30,3 +31,5 @@ Panes
 
 Misc
     Big clock:                    tcp + t
+    Scroll mode                   tcp + [          (q to quit)
+    Pg up mode                    tcp + PgUp       (q to quit)
