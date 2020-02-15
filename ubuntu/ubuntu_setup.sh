@@ -55,7 +55,9 @@ if [[ ! -d ~/.oh-my-zsh ]]; then
   chsh -s $(which zsh)
 fi
 
-git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+if [[ ! -d ~/.tmux-themepack ]]; then
+  git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+fi
 
 if [[ ! -d /opt/piavpn/ ]]; then
   readonly PIA_DL="pia-linux-1.7-03949.run"
@@ -73,7 +75,7 @@ if [[ ! -f fontawesome-free-5.0.13.zip ]]; then
   mv YosemiteSanFranciscoFont-master/*.ttf ~/.fonts/
 fi
 
-if [[ $(sudo dmi$xdecode -s system-product-name) =~ "VirtualBox" ]]; then
+if [[ $(sudo dmidecode -s system-product-name) =~ "VirtualBox" ]]; then
 	sudo apt --yes --force-yes install virtualbox-guest-additions-iso
 	sudo adduser "$USER" vboxusers
 	sudo adduser "$USER" vboxsf
