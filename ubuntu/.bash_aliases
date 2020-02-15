@@ -32,7 +32,7 @@ alias wchk='$(cmk) | grep -i warn'
 # terminal
 alias cls='printf "\033c"'
 alias pss='PS1="$ "'
-alias srcrc='source ~/.bashrc'
+alias srcrc='source ~/.zshrc'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -143,3 +143,4 @@ function xbl() {
 
 alias cvshell='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk'
 alias cvtest='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'
+alias cvbld='docker build -t anvcvsdk .'
