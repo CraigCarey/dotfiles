@@ -1,3 +1,4 @@
 *.tar*
 *.run*
 .idea/
+*.deb

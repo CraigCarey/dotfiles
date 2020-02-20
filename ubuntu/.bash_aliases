@@ -28,6 +28,7 @@ alias mch='make check -s'
 alias mk='make -s'
 alias cmk='cmake .. && make -j$(nproc)'
 alias wchk='$(cmk) | grep -i warn'
+alias rmbld='shopt -s globstar && rm -rf **/bld/ **/build/'
 
 # terminal
 alias cls='printf "\033c"'

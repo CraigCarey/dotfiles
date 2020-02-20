@@ -115,6 +115,11 @@ if [[ $(sudo dmidecode -s system-product-name) != *"VirtualBox"* ]]; then
 	sudo apt-get update && sudo apt-get install spotify-client
 fi
 
+if [[ ! -d playerctl-2.1.1_amd64.deb ]]; then
+  axel https://github.com/altdesktop/playerctl/releases/download/v2.1.1/playerctl-2.1.1_amd64.deb
+  sudo dpkg -i playerctl-2.1.1_amd64.deb
+fi
+
 pushd "$SCRIPT_DIR" > /dev/null
 
 cp ".bashrc" "${HOME}"
