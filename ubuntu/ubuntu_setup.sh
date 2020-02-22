@@ -46,6 +46,8 @@ sudo apt --yes --force-yes install \
                            axel \
                            curl \
                            zsh \
+                           tldr \
+                           htop \
                            powerline \
                            fonts-powerline
 
@@ -63,6 +65,7 @@ if [[ ! -d /opt/piavpn/ ]]; then
   readonly PIA_DL="pia-linux-1.7-03949.run"
   axel "https://installers.privateinternetaccess.com/download/$PIA_DL"
   bash "$PIA_DL"
+  sudo ln -s  /opt/piavpn/bin/pia-client /usr/local/bin/pia-client
 fi
 
 if [[ ! -f fontawesome-free-5.0.13.zip ]]; then
