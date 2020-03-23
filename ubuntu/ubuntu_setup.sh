@@ -20,7 +20,7 @@ sudo apt --yes --force-yes install \
                            cmake \
                            meld \
                            valgrind \
-                           python3.5 \
+                           python3.8 \
                            python3-venv \
                            python-pip \
                            tree \
@@ -49,7 +49,8 @@ sudo apt --yes --force-yes install \
                            tldr \
                            htop \
                            powerline \
-                           fonts-powerline
+                           fonts-powerline \
+                           neofetch
 
 if [[ ! -d ~/.oh-my-zsh ]]; then
   git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -68,11 +69,12 @@ if [[ ! -d /opt/piavpn/ ]]; then
   sudo ln -s  /opt/piavpn/bin/pia-client /usr/local/bin/pia-client
 fi
 
-if [[ ! -f fontawesome-free-5.0.13.zip ]]; then
+readonly FA_VERSION="5.12.1"
+if [[ ! -f fontawesome-free-${FA_VERSION}-desktop.zip ]]; then
   mkdir -p ~/.fonts
-  axel https://github.com/FortAwesome/Font-Awesome/releases/download/5.0.13/fontawesome-free-5.0.13.zip
-  unzip -o fontawesome-free-5.0.13.zip
-  cp fontawesome-free-5.0.13/use-on-desktop/*.otf ~/.fonts/
+  axel https://github.com/FortAwesome/Font-Awesome/releases/download/${FA_VERSION}/fontawesome-free-${FA_VERSION}-desktop.zip
+  unzip -o fontawesome-free-${FA_VERSION}-desktop.zip
+  cp fontawesome-free-${FA_VERSION}-desktop/otfs/*.otf ~/.fonts/
   axel https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
   unzip -o YosemiteSanFranciscoFont-master.zip
   mv YosemiteSanFranciscoFont-master/*.ttf ~/.fonts/
@@ -96,7 +98,7 @@ fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-community-2019.3.1.tar.gz"
+	readonly PYCHARM_DL="pycharm-community-2019.3.4.tar.gz"
 	axel "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
@@ -105,7 +107,7 @@ fi
 
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2019.3.2.tar.gz"
+	readonly CLION_DL="CLion-2019.3.5.tar.gz"
 	axel "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1

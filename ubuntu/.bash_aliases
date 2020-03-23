@@ -76,6 +76,7 @@ alias ping8='ping 8.8.8.8'
 alias weath='curl wttr.in/Belfast'
 alias serveos='ssh -R anvccdt:22:localhost:22 serveo.net'
 alias serveoc='ssh -J serveo.net craig@anvccdt'
+alias vpncon='sudo openvpn --config /etc/openvpn/client.ovpn --auth-user-pass --auth-retry interact'
 
 # misc
 alias cpr='cp -r'
@@ -145,3 +146,4 @@ function xbl() {
 alias cvshell='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk'
 alias cvtest='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'
 alias cvbld='docker build -t anvcvsdk .'
+alias dockz='cd /home/craig/workspace/anv; export SHELL=/bin/bash'
