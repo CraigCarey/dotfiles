@@ -20,9 +20,6 @@ sudo apt --yes --force-yes install \
                            cmake \
                            meld \
                            valgrind \
-                           python3.8 \
-                           python3-venv \
-                           python-pip \
                            tree \
                            bless \
                            openssh-server \
