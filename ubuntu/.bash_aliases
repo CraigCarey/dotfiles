@@ -4,6 +4,12 @@ alias gcm='git commit -am'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
 alias gp='git push'
+alias gf='git fetch'
+alias gm='git merge'
+alias gr='git rebase'
+alias gu='git unstage'
+alias gco='git checkout'
+alias gb='git branch'
 alias gpr='git pull; git reset --hard FETCH_HEAD'
 alias grso='git remote show origin'
 alias gbsa='git branch -a'
@@ -18,6 +24,9 @@ alias gdlb='git branch -d'
 alias gch='git checkout'
 alias gnb='git checkout -b'
 alias grpo='git remote prune origin'
+alias gcd='git checkout development'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
 function gitig() {
 	printf "$1\n" >> .gitignore
 }
@@ -46,10 +55,10 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 # docker
 alias dils='docker image ls'
@@ -76,7 +85,9 @@ alias ping8='ping 8.8.8.8'
 alias weath='curl wttr.in/Belfast'
 alias serveos='ssh -R anvccdt:22:localhost:22 serveo.net'
 alias serveoc='ssh -J serveo.net craig@anvccdt'
-alias vpncon='sudo openvpn --config /etc/openvpn/client.ovpn --auth-user-pass --auth-retry interact'
+alias vpncon='sudo openvpn --config /etc/openvpn/client.ovpn --auth-user-pass /etc/openvpn/login.conf --auth-retry interact'
+alias ssh-host-rm='ssh-keygen -f ~/.ssh/known_hosts -R $1'
+alias cyni='ssh cynitec.uk'
 
 # misc
 alias cpr='cp -r'
@@ -94,6 +105,9 @@ alias vgcheck='valgrind --leak-check=full --show-leak-kinds=all -v'
 alias rsadb='sudo adb kill-server && sudo adb start-server'
 alias tarx='tar -xvf'
 alias cld='clion diff'
+alias suroot='sudo -E su -p'
+alias yd1="youtube-dl -f 'bestvideo[height<=1080]+bestaudio'"
+alias yd2="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
@@ -143,7 +157,13 @@ function xbl() {
 	xbacklight -set "$1"
 }
 
+function open () {
+	xdg-open "$@" &>/dev/null
+}
+
 alias cvshell='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk'
 alias cvtest='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'
+alias cvcopykey="ssh-copy-id debugger@localhost -p 7776"
+alias cvssh="ssh debugger@localhost -p 7776"
 alias cvbld='docker build -t anvcvsdk .'
 alias dockz='cd /home/craig/workspace/anv; export SHELL=/bin/bash'

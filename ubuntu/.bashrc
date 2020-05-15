@@ -118,5 +118,6 @@ fi
 
 export EDITOR="/usr/bin/sb"
 
-DEVICE_ID=$(xinput list | grep 'TouchPad' | sed -n 's/^.*id=\([0-9]*\).*$/\1/p')
-xinput --disable $DEVICE_ID
+# Enable for Thinkpad
+#DEVICE_ID=$(xinput list | grep 'TouchPad' | sed -n 's/^.*id=\([0-9]*\).*$/\1/p')
+#xinput --disable $DEVICE_ID
