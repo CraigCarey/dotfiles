@@ -127,6 +127,7 @@ pushd "$SCRIPT_DIR" > /dev/null
 cp ".bashrc" "${HOME}"
 cp ".zshrc" "${HOME}"
 sudo cp "../keyboard" "/etc/default/"
+sudo cp "20-intel.conf" "/usr/share/X11/xorg.conf.d/" 
 cp ".bash_aliases" "${HOME}"
 cp "../.gitconfig" "${HOME}"
 cp "../.tmux.conf" "${HOME}"

@@ -14,3 +14,4 @@ cp -r "$HOME/cheatsheets/" ..
 cp "${HOME}/.ssh/authorized_keys" "../ssh/"
 cp "${HOME}/.ssh/ssh_config" "../ssh/"
 cp "/etc/network/interfaces" .
+cp "/usr/share/X11/xorg.conf.d/20-intel.conf" .
