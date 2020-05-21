@@ -137,10 +137,13 @@ cp "gtk/settings.ini" "${HOME}/.config/gtk-3.0/"
 mkdir -p "${HOME}/.config/rofi" && cp "/usr/share/rofi/themes/Pop-Dark.rasi" "${HOME}/.config/rofi/config.rasi"
 cp "../elcapitan2hr.jpg" "${HOME}/Pictures/wallpaper.jpg"
 cp -r "../cheatsheets/" "$HOME"
+cp rofi_scripts/* "/usr/local/bin/"
 
 mkdir -p "${HOME}/.ssh/"
 cp "../ssh/authorized_keys" "${HOME}/.ssh/"
 
+ln -sf "${HOME}/Downloads" "${HOME}/dl"
+mkdir -p "${HOME}/workspace"
 rm -rf "${HOME}/Documents" "${HOME}/Music" "${HOME}/examples.desktop" \
        "${HOME}/Public" "${HOME}/Templates" "${HOME}/Videos" "${HOME}/Firefox_wallpaper.png"
 
