@@ -214,8 +214,8 @@ bindsym XF86AudioPrev exec playerctl previous
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.jpg
 exec_always nm-applet
 exec_always blueman-applet
-exec_always /opt/piavpn/bin/pia-client > /dev/null 2>&1 &
-exec_always /usr/bin/pasystray
+exec /opt/piavpn/bin/pia-client > /dev/null 2>&1 &
+exec /usr/bin/pasystray
 
 bindsym $mod+shift+x exec i3lock --color "$bg-color"
 #bindsym $mod+shift+x exec ~/.config/i3/lockscreen.sh
