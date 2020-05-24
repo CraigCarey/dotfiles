@@ -160,9 +160,14 @@ function open () {
 	xdg-open "$@" &>/dev/null
 }
 
+alias cvbld='DOCKER_BUILDKIT=1 docker build -t anvcvsdk .'
 alias cvshell='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk'
 alias cvtest='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'
 alias cvcopykey="ssh-copy-id debugger@localhost -p 7776"
 alias cvssh="ssh debugger@localhost -p 7776"
-alias cvbld='docker build -t anvcvsdk .'
+
+alias cvbld2='DOCKER_BUILDKIT=1 docker build -t anvcvsdk2 .'
+alias cvshell2='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk2'
+alias cvtest2='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk2'
+
 alias dockz='cd /home/craig/workspace/anv; export SHELL=/bin/bash'

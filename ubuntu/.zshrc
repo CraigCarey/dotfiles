@@ -74,5 +74,5 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] &&
 fi
 
 # Enable for Thinkpad
-DEVICE_ID=$(xinput list | grep 'TouchPad' | sed -n 's/^.*id=\([0-9]*\).*$/\1/p')
-xinput --disable $DEVICE_ID
+#DEVICE_ID=$(xinput list | grep 'TouchPad' | sed -n 's/^.*id=\([0-9]*\).*$/\1/p')
+#xinput --disable $DEVICE_ID
