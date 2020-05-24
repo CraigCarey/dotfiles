@@ -107,6 +107,7 @@ alias cld='clion diff'
 alias suroot='sudo -E su -p'
 alias yd1="youtube-dl -f 'bestvideo[height<=1080]+bestaudio'"
 alias yd2="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
+alias sd="sudo "
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
