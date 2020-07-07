@@ -10,7 +10,7 @@ cp ".bashrc" "${HOME}"
 cp ".zshrc" "${HOME}"
 cp ".bash_aliases" "${HOME}"
 sudo cp "../keyboard" "/etc/default/"
-sudo cp "20-intel.conf" "/usr/share/X11/xorg.conf.d/"
+#sudo cp "20-intel.conf" "/usr/share/X11/xorg.conf.d/" # breaks CUDA drivers!
 cp "../.gitconfig" "${HOME}"
 cp "../.tmux.conf" "${HOME}"
 cp -r "i3/" "${HOME}/.config/"
