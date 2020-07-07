@@ -9,8 +9,10 @@ pushd "$SCRIPT_DIR" > /dev/null
 cp "${HOME}/.bashrc" .
 cp "${HOME}/.zshrc" .
 cp "${HOME}/.bash_aliases" .
+cp "${HOME}/.profile" .
+cp -r "${HOME}/.screenlayout" .
 cp "/etc/default/keyboard" ..
-cp "/usr/share/X11/xorg.conf.d/20-intel.conf" .
+#cp "/usr/share/X11/xorg.conf.d/20-intel.conf" .
 cp "${HOME}/.gitconfig" ..
 cp "${HOME}/.tmux.conf" ..
 cp -r "${HOME}/.config/i3/" .
