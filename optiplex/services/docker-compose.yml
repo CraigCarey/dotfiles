@@ -10,7 +10,7 @@ services:
     env_file:
       - db.env
 
-  app:
+  nextcloud:
     image: nextcloud:apache
     restart: always
     volumes:
@@ -70,21 +70,24 @@ services:
     depends_on:
       - proxy
 
-  jellyfin:
-    image: jellyfin/jellyfin
-    user: 1000:1000
+  emby:
+    image: linuxserver/emby
     restart: always
-    volumes:
-      - ./jellyfin/config:/config
-      - ./jellyfin/cache:/cache
-      - ~/4tb/media/:/media
+    container_name: emby
     environment:
-      - VIRTUAL_HOST=jellyfin.cynitec.uk
-      - LETSENCRYPT_HOST=jellyfin.cynitec.uk
-      - LETSENCRYPT_EMAIL=cynitec@gmail.com
-    networks:
-      - proxy-tier
-      - default
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - UMASK_SET=022 #optional
+    volumes:
+      - ./emby/config:/config
+      - ~/4tb/media/tv:/data/tv
+      - ~/4tb/media/films:/data/movies
+      - ~/4tb/media/education:/data/education
+      - /opt/vc/lib:/opt/vc/lib #optional
+    ports:
+      - 8096:8096
+      - 8920:8920 #optional
 
 volumes:
   db:

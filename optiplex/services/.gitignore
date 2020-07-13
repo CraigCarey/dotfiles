@@ -1,2 +1,8 @@
 jellyfin/
 nextcloud/
+<<<<<<< Updated upstream
+=======
+plex
+emby
+*.bk/
+>>>>>>> Stashed changes
