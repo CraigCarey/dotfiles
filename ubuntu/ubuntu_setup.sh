@@ -95,7 +95,7 @@ fi
 
 readonly PYCHARM_DIR="/opt/pycharm/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-	readonly PYCHARM_DL="pycharm-community-2020.1.2.tar.gz"
+	readonly PYCHARM_DL="pycharm-community-2020.2.1.tar.gz"
 	axel "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
 	sudo mkdir "$PYCHARM_DIR"
 	sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
@@ -104,7 +104,7 @@ fi
 
 readonly CLION_DIR="/opt/clion/"
 if [[ ! -d "$CLION_DIR" ]]; then
-	readonly CLION_DL="CLion-2020.1.2.tar.gz"
+	readonly CLION_DL="CLion-2020.2.1.tar.gz"
 	axel "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
 	sudo mkdir "$CLION_DIR"
 	sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1

@@ -12,21 +12,25 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+    . "$HOME/.bashrc"
     fi
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
+if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -f "$HOME/.screenlayout/dual.sh" ] ; then
-	xrandr --output DP-4 --primary
-    bash "$HOME/.screenlayout/dual.sh"
+# set PATH so it includes conda if it exists
+if [ -d "$HOME/anaconda3/bin" ]; then
+    PATH="$HOME/anaconda3/bin:$PATH"
+fi
+
+if [ -f "$HOME/.screenlayout/docked.sh" ]; then
+    bash "$HOME/.screenlayout/docked.sh"
 fi
