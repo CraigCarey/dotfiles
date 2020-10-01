@@ -26,11 +26,6 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# set PATH so it includes conda if it exists
-if [ -d "$HOME/anaconda3/bin" ]; then
-    PATH="$HOME/anaconda3/bin:$PATH"
-fi
-
 if [ -f "$HOME/.screenlayout/docked.sh" ]; then
     bash "$HOME/.screenlayout/docked.sh"
 fi

@@ -121,6 +121,9 @@ alias tmuxas='tmux a -t'
 alias tmuxks='tmux kill-session -t'
 alias tmuxka='tmux kill-session -a'
 
+# Conda
+alias conda_init='eval "$(/path/to/bin/conda shell.bash hook)"'
+
 function chk() {
 	local -r result=$?
 	if [[ $result == 0 ]]; then
@@ -161,15 +164,3 @@ function xbl() {
 function open () {
 	xdg-open "$@" &>/dev/null
 }
-
-alias cvbld='DOCKER_BUILDKIT=1 docker build -t anvcvsdk . --secret id=jfrog-cfg,src=${HOME}/.jfrog/jfrog-cli.conf'
-alias cvshell='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk'
-alias cvtest='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk'
-alias cvcopykey="ssh-copy-id debugger@localhost -p 7776"
-alias cvssh="ssh debugger@localhost -p 7776"
-
-alias cvbld2='DOCKER_BUILDKIT=1 docker build -t anvcvsdk2 . --secret id=jfrog-cfg,src=${HOME}/.jfrog/jfrog-cli.conf'
-alias cvshell2='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/bin/bash anvcvsdk2'
-alias cvtest2='docker run --gpus all --device /dev/dri -v $PWD:/home/cv_sdk/ -v ~/.jfrog/:/home/debugger/.jfrog/ -it --entrypoint=/home/cv_sdk/run_module_tests.sh anvcvsdk2'
-
-alias dockz='cd /home/craig/workspace/anv; export SHELL=/bin/bash'
