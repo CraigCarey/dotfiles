@@ -13,7 +13,7 @@ cp "${HOME}/.profile" .
 cp -r "${HOME}/.screenlayout" .
 cp "/etc/default/keyboard" ..
 #cp "/usr/share/X11/xorg.conf.d/20-intel.conf" .
-cp "${HOME}/.gitconfig" ..
+cp "${HOME}/.gitconfig" "../.gitconfig_${HOSTNAME}"
 cp "${HOME}/.tmux.conf" ..
 cp -r "${HOME}/.config/i3/" .
 cp "${HOME}/.gtkrc-2.0" "gtk/"

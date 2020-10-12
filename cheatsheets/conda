@@ -1,0 +1,10 @@
+Setup
+	conda env create --file environment.yml
+	conda env create --file environment.yml --force  # if env already exists
+	conda activate docu-eval
+
+	conda deactivate
+	conda env remove -n docu-eval
+
+Installing Packages
+	conda install -c conda-forge doxygen
