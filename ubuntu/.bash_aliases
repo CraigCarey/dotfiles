@@ -71,6 +71,8 @@ alias ddeli='docker rmi -f'
 alias ddelc='docker rm'
 alias ddelai='docker rmi -f $(docker images -q)'
 alias ddelac='docker rm -f $(docker ps -aq)'
+alias dkey="ssh-copy-id root@localhost -p 7776"
+alias dssh="ssh root@localhost -p 7776"
 
 # package manager
 alias aptup='sudo apt update && sudo apt upgrade'
@@ -87,7 +89,7 @@ alias weath='curl wttr.in/Belfast'
 alias serveos='ssh -R anvccdt:22:localhost:22 serveo.net'
 alias serveoc='ssh -J serveo.net craig@anvccdt'
 alias vpncon='sudo openvpn --config /etc/openvpn/client.ovpn --auth-user-pass /etc/openvpn/login.conf --auth-retry interact'
-alias ssh-host-rm='ssh-keygen -f ~/.ssh/known_hosts -R $1'
+alias ssh-host-rm='ssh-keygen -f ~/.ssh/known_hosts -R'
 alias cyni='ssh cynitec.uk'
 
 # misc
@@ -108,7 +110,9 @@ alias cld='clion diff'
 alias suroot='sudo -E su -p'
 alias yd1="youtube-dl -f 'bestvideo[height<=1080]+bestaudio'"
 alias yd2="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
-alias sd="sudo "
+alias sd='sudo '
+alias ws='xset dpms force on' # wake all screens
+alias docked='${HOME}/.screenlayout/docked.sh'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
@@ -117,12 +121,12 @@ alias hibernate='sudo systemctl suspend'
 # tmux
 alias tmuxns='tmux new -s'
 alias tmuxls='tmux ls'
-alias tmuxas='tmux a -t'
-alias tmuxks='tmux kill-session -t'
-alias tmuxka='tmux kill-session -a'
+alias tmuxas='tmux a -t' # Attach Session
+alias tmuxks='tmux kill-session -t' # Kill named session
+alias tmuxka='tmux kill-session -a' # Kill all sessions
 
 # Conda
-alias conda_init='eval "$(/path/to/bin/conda shell.bash hook)"'
+alias conda_init='eval "$(~/anaconda3/bin/conda shell.bash hook)"'
 
 function chk() {
 	local -r result=$?
