@@ -19,7 +19,7 @@ alias glo='gl --oneline'
 alias gd='git difftool'
 alias gdm='GTK_THEME=adwaita git difftool --tool meld'
 alias gcl='git clean -dfx'
-alias grhh='git reset --hard HEAD'
+alias grhh='git reset --hard origin/HEAD'
 alias gdrb='git push --delete origin'
 alias gdlb='git branch -d'
 alias gch='git checkout'
@@ -31,6 +31,10 @@ alias grba='git rebase --abort'
 function gitig() {
 	printf "$1\n" >> .gitignore
 }
+
+# repo tool
+alias rta='repo forall -c' # e.g. rta git reset --hard origin/HEAD
+alias rtra='repo forall -c git reset --hard origin/HEAD'
 
 # building
 alias mcl='make clean -s'
@@ -71,8 +75,8 @@ alias ddeli='docker rmi -f'
 alias ddelc='docker rm'
 alias ddelai='docker rmi -f $(docker images -q)'
 alias ddelac='docker rm -f $(docker ps -aq)'
-alias dkey="ssh-copy-id root@localhost -p 7776"
-alias dssh="ssh root@localhost -p 7776"
+alias dkey="ssh-copy-id root@localhost -p 2222"
+alias dssh="ssh -X root@localhost -p 2222"
 
 # package manager
 alias aptup='sudo apt update && sudo apt upgrade'
@@ -111,7 +115,7 @@ alias suroot='sudo -E su -p'
 alias yd1="youtube-dl -f 'bestvideo[height<=1080]+bestaudio'"
 alias yd2="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
 alias sd='sudo '
-alias ws='xset dpms force on' # wake all screens
+alias ws='${HOME}/.screenlayout/wakemon.sh' # wake all screens
 alias docked='${HOME}/.screenlayout/docked.sh'
 
 # lubuntu specific...

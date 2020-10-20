@@ -1,0 +1,19 @@
+# Installing Repo Tool
+	wget https://storage.googleapis.com/git-repo-downloads/repo
+	chmod +x repo
+	sudo mv repo /usr/local/bin
+
+# Pulling Repos
+	# This will check out the head of master for all repos mentioned in the manifest (default.xml)
+	mkdir my_repos && cd my_repos
+	repo init -u git@github.com:CraigCarey/repo-manifest.git
+	repo sync
+
+# Useful Commands
+	repo sync # for updating all repos
+	repo info # will give you branch information for all repos
+	repo status # gives you the `git status` for all repos
+	repo diff # gives you the `git diff` for all repos
+	repo forall -c <command> # to run a command on all repos, e.g.
+		repo forall -c git reset --hard HEAD
+		repo forall -c git checkout 0.1.0
