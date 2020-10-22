@@ -22,7 +22,7 @@
     tool = intellij
     
 [difftool "intellij"]
-    cmd = /opt/clion/bin/clion.sh diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+    cmd = /opt/pycharm/bin/pycharm.sh diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [core]
 	editor = sb -n -w
 [color]

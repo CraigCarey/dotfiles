@@ -105,6 +105,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [[ $(grep :/docker /proc/self/cgroup | wc -l) != 0 ]]; then
+    PS1='\[\033[31m\][\u\[\e[31m\]@\[\e[31m\]docker\[\e[37m\] \W\[\e[31m\]]\$\[\e[m\] '
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

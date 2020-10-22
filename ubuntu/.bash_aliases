@@ -19,7 +19,7 @@ alias glo='gl --oneline'
 alias gd='git difftool'
 alias gdm='GTK_THEME=adwaita git difftool --tool meld'
 alias gcl='git clean -dfx'
-alias grhh='git reset --hard origin/HEAD'
+alias grhh='git reset --hard HEAD'
 alias gdrb='git push --delete origin'
 alias gdlb='git branch -d'
 alias gch='git checkout'
@@ -34,7 +34,7 @@ function gitig() {
 
 # repo tool
 alias rta='repo forall -c' # e.g. rta git reset --hard origin/HEAD
-alias rtra='repo forall -c git reset --hard origin/HEAD'
+alias rtra='repo forall -c git reset --hard HEAD'
 
 # building
 alias mcl='make clean -s'
@@ -77,6 +77,9 @@ alias ddelai='docker rmi -f $(docker images -q)'
 alias ddelac='docker rm -f $(docker ps -aq)'
 alias dkey="ssh-copy-id root@localhost -p 2222"
 alias dssh="ssh -X root@localhost -p 2222"
+function in_docker() {
+	grep :/docker /proc/self/cgroup | wc -l
+}
 
 # package manager
 alias aptup='sudo apt update && sudo apt upgrade'
