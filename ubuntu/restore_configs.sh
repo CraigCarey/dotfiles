@@ -20,6 +20,7 @@ cp "${HOME}/.screenlayout/${HOSTNAME}_docked.sh" "${HOME}/.screenlayout/docked.s
 cp "../.gitconfig_${HOSTNAME}" "${HOME}/.gitconfig"
 cp "../.tmux.conf" "${HOME}"
 cp -r "i3/" "${HOME}/.config/"
+cp -r "regolith/" "${HOME}/.config/"
 cp "gtk/.gtkrc-2.0" "${HOME}/"
 cp "gtk/settings.ini" "${HOME}/.config/gtk-3.0/"
 cp -r "../cheatsheets/" "$HOME"

@@ -34,7 +34,7 @@ function gitig() {
 
 # repo tool
 alias rta='repo forall -c' # e.g. rta git reset --hard origin/HEAD
-alias rtra='repo forall -c git reset --hard HEAD'
+alias rtra='repo forall -c git reset --HEAD'
 
 # building
 alias mcl='make clean -s'
@@ -92,6 +92,8 @@ alias netscan='ifconfig | grep broadcast | arp -a'
 alias arpscn='sudo arp-scan -I enp4s0 -l'
 alias speed-test='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias ping8='ping 8.8.8.8'
+alias pingb='ping bbc.com'
+alias pingg='ping google.com'
 alias weath='curl wttr.in/Belfast'
 alias serveos='ssh -R anvccdt:22:localhost:22 serveo.net'
 alias serveoc='ssh -J serveo.net craig@anvccdt'

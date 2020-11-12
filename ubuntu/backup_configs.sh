@@ -20,6 +20,7 @@ cp "${HOME}/.screenlayout/docked.sh" "${HOME}/.screenlayout/${HOSTNAME}_docked.s
 cp "${HOME}/.gitconfig" "../.gitconfig_${HOSTNAME}"
 cp "${HOME}/.tmux.conf" ..
 cp -r "${HOME}/.config/i3/" .
+cp -r "${HOME}/.config/regolith/" .
 cp "${HOME}/.gtkrc-2.0" "gtk/"
 cp "${HOME}/.config/gtk-3.0/settings.ini" "gtk/"
 cp -r "$HOME/cheatsheets/" .. 
@@ -32,4 +33,3 @@ cp "/etc/default/keyboard" ..
 cp "/etc/rc.local" .
 cp "/etc/network/interfaces" .
 #cp "/usr/share/X11/xorg.conf.d/20-intel.conf" .
-
