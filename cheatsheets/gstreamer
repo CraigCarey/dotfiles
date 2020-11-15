@@ -1,0 +1,31 @@
+Setup
+	apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+
+Test Audio
+	gst-launch-1.0 audiotestsrc ! alsasink
+
+Test Video
+	gst-launch-1.0 videotestsrc ! ximagesink
+
+Test Webcam
+	gst-launch-1.0 v4l2src device=/dev/video2 ! xvimagesink
+
+Check plugin
+	gst-inspect-1.0 v4l2src
+
+Search plugins
+	gst-inspect-1.0 -a <search term>
+
+Basic format
+	gst-launch-1.0 <plugin A> <A properties> ! <A cap 1>, <A cap 2>, ! <plugin B>
+
+	# For this to work the src cap format of audiotestsrc must be supported by the alsasink sink
+	gst-launch-1.0 audiotestsrc wave=0 freq=300 volume=1 ! audio/x-raw,format=U8 ! alsasink
+
+	# Converters may deduce the required conversion
+	gst-launch-1.0 audiotestsrc ! audio/x-raw,format=U18LE ! audioconvert ! alsasink
+	gst-launch-1.0 videotestsrc ! video/x-raw,format=NV12 ! autovideoconvert ! ximagesink
+
+	# Or you may need to specify the output type
+	gst-launch-1.0 audiotestsrc ! audio/x-raw,format=U18LE ! audioconvert ! audio/x-raw, format=U8 ! alsasink
+	gst-launch-1.0 videotestsrc ! video/x-raw,format=NV12 ! autovideoconvert ! videoconvert ! video/x-raw,width=1280,height=960 ! ximagesink
