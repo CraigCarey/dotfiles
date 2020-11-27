@@ -28,6 +28,7 @@ alias grpo='git remote prune origin'
 alias gcd='git checkout development'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
+alias gdab='git branch | grep -v "$(git rev-parse --abbrev-ref HEAD)" | xargs git branch -D'
 function gitig() {
 	printf "$1\n" >> .gitignore
 }
