@@ -29,6 +29,7 @@ alias gcd='git checkout development'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
 alias gdab='git branch | grep -v "$(git rev-parse --abbrev-ref HEAD)" | xargs git branch -D'
+alias gro='git switch -C $(git_current_branch) origin/$(git_current_branch)' # reset to origin
 function gitig() {
 	printf "$1\n" >> .gitignore
 }
