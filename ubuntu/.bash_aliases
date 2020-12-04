@@ -77,8 +77,11 @@ alias ddeli='docker rmi -f'
 alias ddelc='docker rm'
 alias ddelai='docker rmi -f $(docker images -q)'
 alias ddelac='docker rm -f $(docker ps -aq)'
-alias dkey="ssh-copy-id root@localhost -p 2222"
-alias dssh="ssh -X root@localhost -p 2222"
+alias dkey='sshpass -p root ssh-copy-id -o StrictHostKeyChecking=no root@localhost -p 2222'
+alias dssh='ssh -X root@localhost -p 2222'
+alias dcdn='docker-compose down && ssh-keygen -f "/home/craig/.ssh/known_hosts" -R "[localhost]:2222"'
+alias dcup='docker-compose up -d'
+alias dcru='dcdn && dcup && dkey'
 function in_docker() {
 	grep :/docker /proc/self/cgroup | wc -l
 }

@@ -23,6 +23,7 @@ sudo apt --yes --force-yes install \
                tree \
                bless \
                openssh-server \
+               sshpass \
                sshfs \
                net-tools \
                tmux \
