@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  base:
+    image: base
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    container_name: base
+    ports:
+      - "2222:22"     # ssh
+      - "7777:7777"   # gdb
+    entrypoint: "/usr/sbin/sshd -D"
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - .:/root/workspace/
+    working_dir:
+      /root/workspace/
+    user: craig
