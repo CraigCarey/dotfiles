@@ -7,6 +7,8 @@ docker-compose up -d
 sshpass -p root ssh-copy-id -o StrictHostKeyChecking=no root@localhost -p 2222
 ssh -X root@localhost -p 2222
 
+docker build -t gst -f Dockerfile.gst .
+
 # or see run_docker.sh
 ```
 
