@@ -3,17 +3,22 @@ version: '3'
 services:
   base:
     image: base
-    security_opt:
-      - seccomp:unconfined
-      - apparmor:unconfined
     container_name: base
-    ports:
-      - "2222:22"     # ssh
-      - "7777:7777"   # gdb
     entrypoint: "/usr/sbin/sshd -D"
+    working_dir: /home/craig/
+    hostname: docker-base
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /home/craig/:/home/craig/
-    working_dir:
-      /root/workspace/
-    #user: craig
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    networks:
+      static-network:
+        ipv4_address: 172.20.128.1
+
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
