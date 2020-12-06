@@ -13,7 +13,7 @@ services:
     entrypoint: "/usr/sbin/sshd -D"
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - .:/root/workspace/
+      - /home/craig/:/home/craig/
     working_dir:
       /root/workspace/
-    user: craig
+    #user: craig

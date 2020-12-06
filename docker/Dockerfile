@@ -34,7 +34,12 @@ RUN set -eu; \
     mkdir /var/run/sshd; \
     echo 'root:root' | chpasswd; \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config; \
-    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd;
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd; \
+    mkdir -p /var/run/sshd; \
+    mkdir -p /root/.ssh; \
+    chmod 700 /root/.ssh; \
+    ssh-keygen -A; \
+    echo "export DISPLAY=:0" >> /etc/profile
 
 WORKDIR /home/craig/
 
