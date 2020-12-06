@@ -13,9 +13,10 @@ WORKDIR /build/
 
 RUN apt-get update -y
 
-COPY install_basic_tools.sh .
-COPY install_term_tools.sh .
-COPY install_programming_tools.sh .
+COPY install_scripts/sudo_alias.sh .
+COPY install_scripts/install_basic_tools.sh .
+COPY install_scripts/install_term_tools.sh .
+COPY install_scripts/install_programming_tools.sh .
 RUN bash install_basic_tools.sh
 RUN bash install_term_tools.sh
 RUN bash install_programming_tools.sh

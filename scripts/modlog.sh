@@ -1,4 +1,9 @@
- git filter-branch --env-filter '
+#!/usr/bin/env bash
+
+# to list contributors
+# git shortlog -sne
+
+git filter-branch --env-filter '
 NEW_NAME="Craig"
 NEW_EMAIL="sgccarey@gmail.com"
 
