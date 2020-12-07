@@ -1,6 +1,9 @@
 [user]
-	email = craig@cynitec.uk
+	email = sgccarey@gmail.com
 	name = Craig Carey
+
+[includeIf "gitdir:~/workspace/work/"]
+    path = ~/workspace/work/.gitconfig
 
 # ------------------ M E R G E -------------------------
 [merge]
@@ -22,7 +25,7 @@
     tool = intellij
     
 [difftool "intellij"]
-    cmd = /opt/clion/bin/clion.sh diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+    cmd = /opt/pycharm/bin/pycharm.sh diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
 [core]
 	editor = sb -n -w
 [color]
