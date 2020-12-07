@@ -8,10 +8,6 @@ pushd "$SCRIPT_DIR" > /dev/null
 
 source sudo_alias.sh
 
-# TODO: enable in docker only
-#TZ="Europe/Belfast"
-#ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
 sudo apt-get update -y
 sudo apt-get install -y \
     sudo \
@@ -30,8 +26,5 @@ sudo apt-get install -y \
     ca-certificates \
     x11-xserver-utils \
     locales
-
-# TODO: enable in docker only
-#sed -i '/en_GB.UTF-8/s/^# //g' /etc/locale.gen && locale-gen
 
 popd

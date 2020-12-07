@@ -42,9 +42,6 @@ fi
 
 sudo wget https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh -O /usr/share/doc/fzf/examples/key-bindings.zsh
 
-# TODO: enable in docker only
-#sudo sed -i '/en_GB.UTF-8/s/^# //g' /etc/locale.gen && sudo locale-gen
-
 chsh -s $(which zsh) craig
 
 popd

@@ -2,7 +2,7 @@ version: '3'
 
 services:
   base:
-    image: base
+    image: ghcr.io/craigcarey/dotfiles/base
     container_name: base
     entrypoint: "/usr/sbin/sshd -D"
     working_dir: /home/craig/
@@ -17,22 +17,21 @@ services:
       static-network:
         ipv4_address: 172.20.128.1
 
-services:
-  gst:
-    image: gst
-    container_name: gst
-    entrypoint: "/usr/sbin/sshd -D"
-    working_dir: /home/craig/
-    hostname: docker-gst
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix
-      - /home/craig/:/home/craig/
-    security_opt:
-      - seccomp:unconfined
-      - apparmor:unconfined
-    networks:
-      static-network:
-        ipv4_address: 172.20.128.2
+#   gst:
+#     image: gst
+#     container_name: gst
+#     entrypoint: "/usr/sbin/sshd -D"
+#     working_dir: /home/craig/
+#     hostname: docker-gst
+#     volumes:
+#       - /tmp/.X11-unix:/tmp/.X11-unix
+#       - /home/craig/:/home/craig/
+#     security_opt:
+#       - seccomp:unconfined
+#       - apparmor:unconfined
+#     networks:
+#       static-network:
+#         ipv4_address: 172.20.128.2
 
 networks:
   static-network:
