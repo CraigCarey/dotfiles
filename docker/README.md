@@ -19,6 +19,9 @@ Go to https://github.com/settings/tokens and generate a token scoped for pushing
 ```bash
 docker build -t ghcr.io/craigcarey/dotfiles/base .
 export CR_PAT=<token generated above>
+# or
+source ~/.ssh/ghcr.token
+
 echo $CR_PAT | docker login ghcr.io -u craigcarey --password-stdin
 docker push ghcr.io/craigcarey/dotfiles/base
 ```

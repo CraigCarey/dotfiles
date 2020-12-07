@@ -29,5 +29,5 @@ sudo apt-get install -y \
   regolith-look-ubuntu
 
 
-#regolith-look set solarized-dark
-#regolith-look refresh
+# regolith-look set gruvbox
+# regolith-look refresh

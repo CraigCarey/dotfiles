@@ -16,8 +16,8 @@ cp "${HOME}/.zshrc" .
 cp "${HOME}/.bash_aliases" .
 cp "${HOME}/.profile" .
 cp -r "${HOME}/.screenlayout" .
-cp "${HOME}/.screenlayout/docked.sh" "${HOME}/.screenlayout/${HOSTNAME}_docked.sh"
-cp "${HOME}/.gitconfig" "../.gitconfig_${HOSTNAME}"
+rm ".screenlayout/docked.sh"
+cp "${HOME}/.gitconfig" "../.gitconfig"
 cp "${HOME}/.tmux.conf" ..
 cp -r "${HOME}/.config/i3/" .
 cp -r "${HOME}/.config/regolith/" .
