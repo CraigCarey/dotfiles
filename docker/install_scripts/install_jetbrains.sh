@@ -8,22 +8,28 @@ pushd "$SCRIPT_DIR" > /dev/null
 
 source sudo_alias.sh
 
-readonly PYCHARM_DIR="/opt/pycharm/"
+readonly JB_VERSION="2020.3"
+
+readonly PYCHARM_VERSION=$JB_VERSION
+readonly PYCHARM_DIR="/opt/pycharm-${PYCHARM_VERSION}/"
 if [[ ! -d "$PYCHARM_DIR" ]]; then
-  readonly PYCHARM_DL="pycharm-professional-2020.2.3.tar.gz"
+  sudo rm -rf "/opt/pycharm*"
+  readonly PYCHARM_DL="pycharm-professional-${PYCHARM_VERSION}.tar.gz"
   axel "https://download-cf.jetbrains.com/python/${PYCHARM_DL}"
   sudo mkdir "$PYCHARM_DIR"
   sudo tar -xzf "$PYCHARM_DL" -C "$PYCHARM_DIR" --strip-components=1
-  sudo ln -s "${PYCHARM_DIR}bin/pycharm.sh" "/usr/bin/pycharm"
+  sudo ln -sf "${PYCHARM_DIR}bin/pycharm.sh" "/usr/local/bin/pycharm"
 fi
 
-readonly CLION_DIR="/opt/clion/"
+readonly CLION_VERSION=$JB_VERSION
+readonly CLION_DIR="/opt/clion-${CLION_VERSION}/"
 if [[ ! -d "$CLION_DIR" ]]; then
-  readonly CLION_DL="CLion-2020.2.5.tar.gz"
+  sudo rm -rf "/opt/clion*"
+  readonly CLION_DL="CLion-${CLION_VERSION}.tar.gz"
   axel "https://download-cf.jetbrains.com/cpp/${CLION_DL}"
   sudo mkdir "$CLION_DIR"
   sudo tar -xzf "$CLION_DL" -C "$CLION_DIR" --strip-components=1
-  sudo ln -s "${CLION_DIR}bin/clion.sh" "/usr/bin/clion"
+  sudo ln -sf "${CLION_DIR}bin/clion.sh" "/usr/local/bin/clion"
 fi
 
 popd
