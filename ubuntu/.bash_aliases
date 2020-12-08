@@ -127,6 +127,7 @@ alias yd2="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
 alias sd='sudo '
 alias ws='${HOME}/.screenlayout/wakemon.sh' # wake all screens
 alias docked='${HOME}/.screenlayout/docked.sh'
+alias pink='gst-launch-1.0 audiotestsrc wave=10 ! alsasink'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
