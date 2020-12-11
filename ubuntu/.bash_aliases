@@ -48,7 +48,7 @@ alias rmbld='shopt -s globstar && rm -rf **/bld/ **/build/'
 
 # terminal
 alias cls='printf "\033c"'
-alias pss='PS1="$ "'
+alias pss='PS1="> "'
 alias srcrc='source ~/.zshrc'
 alias ll='ls -alF'
 alias la='ls -A'
