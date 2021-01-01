@@ -1,4 +1,5 @@
 
 192.168.1.180   optiplex
+192.168.1.182   proliant
 172.20.128.1    docker-base
 172.20.128.2    docker-gst
