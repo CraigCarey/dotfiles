@@ -1,0 +1,108 @@
+# sysbench cpu run
+sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   643.80
+
+General statistics:
+    total time:                          10.0004s
+    total number of events:              6440
+
+Latency (ms):
+         min:                                    1.54
+         avg:                                    1.55
+         max:                                    3.05
+         95th percentile:                        1.55
+         sum:                                 9997.89
+
+Threads fairness:
+    events (avg/stddev):           6440.0000/0.00
+    execution time (avg/stddev):   9.9979/0.00
+
+
+
+
+# sysbench cpu --threads=$(nproc) run
+sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 32
+Initializing random number generator from current time
+
+
+Prime numbers limit: 10000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second: 14228.32
+
+General statistics:
+    total time:                          10.0022s
+    total number of events:              142354
+
+Latency (ms):
+         min:                                    1.54
+         avg:                                    2.24
+         max:                                   38.23
+         95th percentile:                        2.22
+         sum:                               319577.88
+
+Threads fairness:
+    events (avg/stddev):           4448.5625/28.28
+    execution time (avg/stddev):   9.9868/0.02
+
+
+
+
+# sysbench memory run
+sysbench 1.0.18 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 34909209 (3489485.79 per second)
+
+34091.02 MiB transferred (3407.70 MiB/sec)
+
+
+General statistics:
+    total time:                          10.0001s
+    total number of events:              34909209
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                    0.37
+         95th percentile:                        0.00
+         sum:                                 4908.84
+
+Threads fairness:
+    events (avg/stddev):           34909209.0000/0.00
+    execution time (avg/stddev):   4.9088/0.00
+
