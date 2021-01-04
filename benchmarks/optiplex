@@ -105,4 +105,3 @@ Latency (ms):
 Threads fairness:
     events (avg/stddev):           62275440.0000/0.00
     execution time (avg/stddev):   4.475
-
