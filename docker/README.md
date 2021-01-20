@@ -4,10 +4,12 @@
 docker build -t base .
 
 docker-compose up -d
-sshpass -p root ssh-copy-id -o StrictHostKeyChecking=no root@localhost -p 2222
-ssh -X root@localhost -p 2222
+
+ssh docker-base # see ../ubuntu/hosts.append
 
 docker build -t gst -f Dockerfile.gst .
+ssh docker-gst
+
 
 # or see run_docker.sh
 ```
