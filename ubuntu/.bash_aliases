@@ -28,10 +28,15 @@ alias grpo='git remote prune origin'
 alias gcd='git checkout development'
 alias grbc='git rebase --continue'
 alias grba='git rebase --abort'
+alias gbn='git rev-parse --abbrev-ref HEAD' # Get current branch name
 alias gdab='git branch | grep -v "$(git rev-parse --abbrev-ref HEAD)" | xargs git branch -D'
 alias gro='git switch -C $(git_current_branch) origin/$(git_current_branch)' # reset to origin
 function gitig() {
 	printf "$1\n" >> .gitignore
+}
+
+function gcmp() {
+	gcm "$(gbn): $1" # Commit with the branchname prefixed to the message
 }
 
 # repo tool
@@ -105,6 +110,7 @@ alias serveoc='ssh -J serveo.net craig@anvccdt'
 alias vpncon='sudo openvpn --config /etc/openvpn/client.ovpn --auth-user-pass /etc/openvpn/login.conf --auth-retry interact'
 alias ssh-host-rm='ssh-keygen -f ~/.ssh/known_hosts -R'
 alias cyni='ssh cynitec.uk'
+alias flushdns='sudo systemd-resolve --flush-caches'
 
 # misc
 alias cpr='cp -r'
