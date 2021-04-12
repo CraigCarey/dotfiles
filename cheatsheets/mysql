@@ -1,0 +1,6 @@
+show tables;
+show columns from file_type;
+select * from file_type;
+select bin_to_uuid(id) from file_type;
+select * from library;
+delete from library;
