@@ -15,7 +15,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf globalias)
+plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -68,9 +68,13 @@ prompt_dir() {
   prompt_segment blue black '%c'
 }
 
-# Start new tmux session
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  tmux
+# Set TMUX_OFF if you don't want a tmux session in each term
+if [[ -z "$TMUX_OFF" ]]; then
+
+	# Start new tmux session
+	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+	  tmux
+	fi
 fi
 
 # Enable for Thinkpad
