@@ -15,7 +15,8 @@ sudo apt-get install -y \
   htop \
   tree \
   tldr \
-  xclip
+  xclip \
+  cmus
 
 tldr git
 

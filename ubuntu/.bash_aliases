@@ -139,6 +139,7 @@ alias sd='sudo '
 alias ws='${HOME}/.screenlayout/wakemon.sh' # wake all screens
 alias docked='${HOME}/.screenlayout/docked.sh'
 alias pink='gst-launch-1.0 audiotestsrc wave=10 ! alsasink'
+alias mntmusic='mkdir -p ~/music && sshfs cynitec.uk:/home/craig/4tb/media/music ~/music'
 
 # lubuntu specific...
 alias startx='sudo service lightdm start'
